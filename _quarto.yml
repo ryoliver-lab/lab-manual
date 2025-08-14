@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "Oliver Lab Manual"
+  date: "8/14/2025"
+  chapters:
+    - index.qmd
+    - culture.qmd
+    - onboarding.qmd
+    - expectations.qmd
+    - funding.qmd
+    - academics.qmd
+    - workflows.qmd
+    
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

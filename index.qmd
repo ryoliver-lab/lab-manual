@@ -1,0 +1,7 @@
+---
+title: "Welcome"
+---
+
+Welcome to our lab manual!
+
+We are the Oliver Lab at UC Santa Barbara's Bren School of Environmental Science & Management.

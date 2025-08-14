@@ -1,0 +1,32 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Oliver Lab Manual",
+    "section": "",
+    "text": "Welcome to our lab manual!\nWe are the Oliver Lab at UC Santa Barbara’s Bren School of Environmental Science & Management.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
+    ]
+  },
+  {
+    "objectID": "culture.html",
+    "href": "culture.html",
+    "title": "1  Lab Culture and Philosophy",
+    "section": "",
+    "text": "Lorem ipsum",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Lab Culture and Philosophy</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html",
+    "href": "expectations.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Expectations and Mentoring</span>"
+    ]
+  }
+]
