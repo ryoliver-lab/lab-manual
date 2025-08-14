@@ -12,21 +12,11 @@
   {
     "objectID": "culture.html",
     "href": "culture.html",
-    "title": "1  Lab Culture and Philosophy",
+    "title": "2  Lab Culture and Philosophy",
     "section": "",
     "text": "Lorem ipsum",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Lab Culture and Philosophy</span>"
-    ]
-  },
-  {
-    "objectID": "expectations.html",
-    "href": "expectations.html",
-    "title": "3  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Expectations and Mentoring</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lab Culture and Philosophy</span>"
     ]
   }
 ]
