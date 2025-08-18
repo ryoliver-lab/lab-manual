@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Oliver Lab Manual"
-  date: "8/14/2025"
+  date: today
   chapters:
     - index.qmd
     - culture.qmd
