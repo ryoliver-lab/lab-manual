@@ -188,5 +188,25 @@
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
     ]
+  },
+  {
+    "objectID": "workflows.html",
+    "href": "workflows.html",
+    "title": "7  Workflows and Best Practices",
+    "section": "",
+    "text": "7.1 Commands on Pod",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Workflows and Best Practices</span>"
+    ]
+  },
+  {
+    "objectID": "workflows.html#commands-on-pod",
+    "href": "workflows.html#commands-on-pod",
+    "title": "7  Workflows and Best Practices",
+    "section": "",
+    "text": "Command\nUse\n\n\n\n\nssh {username}@pod-login1.cnsi.ucsb.edu\nlogin to pod\n\n\nsrun --pty bash -i\nrun in a tmux session, launch an interactive job on a normal memory node (add to the queue) that doesn’t respect SBATCH commands in the sh files run\n\n\nsbatch script.sh\nlaunch a non-interactive job on a normal memory node (add to the queue)\n\n\nsbatch -p largemem script.sh\nlaunch a non-interactive job on a high memory node (add to the queue)\n\n\nsqueue -u {username}\nprint information regarding requested jobs such as JOBID, NAME, NODES, etc.\n\n\nssh node48\nopen terminal in the appropriate node number such as node 48\n\n\nscontrol show job {jobID}\nshow detailed info about your job, such as endtime\n\n\ntop -u {username}\nshow node memory usage and only your processes, with %MEM column showing each process’s memory usage (htop is not available on Pod)\n\n\nmodule load R/4.1.3 gdal/2.2.3 proj/5.2\nload modules in one of the terminals on the job node\n\n\nR\nopen R module in terminal\n\n\nq()\nexit out of R module, switch wd to ~\n\n\nsinfo -o \"%n %m\"\nshows the total amount of memory per node for all nodes on the server\n\n\nsinfo -o \"%n %m %C\" | awk '$2 &gt;= 512000'\nshows the core availability of each node that has at least 500GB",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Workflows and Best Practices</span>"
+    ]
   }
 ]
