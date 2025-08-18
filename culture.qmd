@@ -1,5 +1,3 @@
 ---
 title: "Lab Culture and Philosophy"
 ---
-
-Lorem ipsum

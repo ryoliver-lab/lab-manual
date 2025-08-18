@@ -1,3 +1,21 @@
 ---
 title: "Expectations"
 ---
+
+This chapter contains information about how we work.
+
+## Communication
+
+We communicate via Slack and email. The lab Slack channel is the preferred method of communication for a quick response. You should check your email or Slack at least once a day during the normal work week. You are not expected to be available 24/7 and should not expect responses to emails or messages after regular business hours on weekdays, or on weekends. 
+
+## Lab meetings
+
+Attendance is generally expected at weekly lab meetings (also known as **Wildlife @ Bren**). Here, we present research, discuss papers, troubleshoot code, host guest speakers, and undertake professional development activities. We decide on a schedule collaboratively at the start of each quarter. Lab meetings are hybrid to allow for full participation. We host our in-person meetings at Bren's Visitor Center. 
+
+## Weekly meetings (1:1)
+
+Ruth generally meets with lab members weekly. During this meeting, we’ll review progress on the previous week’s goals and set goals for the next week. 
+
+## Mentorship
+
+Ruth annualy meets with students and staff to re-visit and hone their [Individual Development Plans (IDPs)](https://www.science.org/content/article/editorial-planning-career-paths-phds) for their short-, medium-, and long-term goals. Each advisor-student relationship may look different depending on the career status, goals, and overall dynamics. IDPs help us align expectations in mentorship and facilitate communication between advisor/student. 

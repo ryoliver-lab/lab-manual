@@ -1,1 +1,89 @@
-# Academics
+---
+title: "Academics"
+---
+
+This chapter contains information pertaining to graduate students enrolled in the Bren School's PhD program.
+
+## Requirements
+
+The PhD degree is not based on a unit count. PhD students must take three core ESM courses (10 units) and any other relevant coursework to achieve the academic goals set for the student by the faculty advisor and committee. 
+
+- [Year 1, Fall] ESM 512: Research Ethics and Conduct (2 units)
+- [Year 2, Fall] ESM 513 Environmental Research Design (4 units)
+- [Year 2, Winter] ESM 514 Collaborative Interdisciplinary Research (4 units)
+
+If you are a Bren master’s graduate continuing to a PhD, your academic clock will be reset to zero. 
+
+### Timeline
+
+The time-to-degree standards for the Bren School are:
+
+- **Advancement to candidacy**: 3 years
+- **Degree completion**: 5 years
+
+There are general milestones/deadlines you will also need to complete:
+
+**Bren School PhD Annual Review Form**, due every fall quarter
+: Every winter quarter, a student's progress and performance is reviewed by the faculty chair of the PhD Program Committee. Before submitting the form, you must convene a meeting of your committee and present a progress report. PhD students in their first year who do not have formal committees meet with their advisor.
+
+**Form I: Justification of Proposed PhD Committee**, due fall quarter of 2<sup>nd</sup> year
+: By the fall quarter of the second year of study, students must confirm their advisor(s) and select members of their committee. To nominate a committee, you must (1) start the “Create Committee” workflow in GradPoint and (2) complete the Form 1.
+
+**PhD Written Exam Form**, due 2<sup>nd</sup> year
+: The PhD committee will recommend a reading list as a guide for study and describe the nature of the exam. You must submit the **PhD Written Exam Form** to the Student Affairs staff within 30 days of the examination.
+
+**Form II: Report on Doctoral Degree Qualifying Examinations**, due spring quarter of 3<sup>rd</sup> year
+: To advance to candidacy, students must develop and defend a comprehensive dissertation proposal and take an oral qualifying examination by the spring quarter of their 3<sup>rd</sup> year. You must complete the Form II. Students must complete all PhD core courses prior to scheduling their oral exams.
+
+
+**Form III: Report on Doctoral Degree Final Defense**
+
+This is a general guideline. Each PhD student at Bren follows a unique timeline.
+
+## Course Registration
+
+Course registration at UCSB is done through [Gaucho On-Line Data (GOLD)](https://my.sa.ucsb.edu/gold/). Registration for each quarter takes place about mid-way through the previous quarter. It your responsibility to keep track of registration pass times and enroll in courses
+accurately and on time. Before registering for each quarter, you will meet with Ruth to discuss registration plans for the forthcoming quarter (courses and/or research credits).
+
+> The Bren School philosophy is to accommodate all Bren students who want to take a particular
+Bren course. However, some courses may have limited capacity. If GOLD indicates that a
+course is full, please email [academics@bren.ucsb.edu](mailto:academics@bren.ucsb.edu) to inquire about the possibility of adding the course or being added to a waitlist.
+
+PhD studentsmust be enrolled in a minimum of 12 units per quarter to maintain full-time status and opportunities for financial support. 
+
+## Courses
+
+Graduate courses at UCSB are numbered 200-599. Upper-division undergraduate courses are numbered 100-199. Lower-division undergraduate courses, numbered <100, can never count towards satisfying graduate degree requirements.
+
+Broadly, Ruth has recommended the following courses:
+
+**Ecological Theory**
+
+- EEMB 508: Levels of Biological Organization I: Individuals and Populations
+- EEMB 595A: Ecology and Evolution
+- EEMB 595FF: Foundations and Frontiers in Ecology
+- EEMB 280: Evolutionary Theory and Models of Behavioral Processes
+
+**Methods**
+
+- EEMB 247: Quantitative Methods in Biology
+- EEMB 274: Advanced Biostatistics using Bayesian Methods 
+- EEMB 279: Ecological Modeling
+- GEOG 286: Analysis and Modeling of Movement
+
+**Remote Sensing and Earth Science**
+
+- EARTH 205: Earth's Climate: Past and Present
+- GEOG 202A: Remote Sensing and Environmental Optics
+- GEOG 214A: Advanced Remote Sensing: Passive
+- GEOG 266: Introduction to Atmospheric Sciences
+
+**Science Communication**
+
+- EEMB 511: Writing Science
+
+
+
+
+
+

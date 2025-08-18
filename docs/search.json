@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Oliver Lab Manual",
     "section": "",
-    "text": "Welcome to our lab manual!\nWe are the Oliver Lab at UC Santa Barbara’s Bren School of Environmental Science & Management.",
+    "text": "Welcome to our lab manual!\nWe are the Oliver Lab at UC Santa Barbara’s Bren School of Environmental Science & Management. Our group works to create new perspectives on how humans and wildlife can coexist in an era of rapid change. More about our group’s research activity can be found on our website.\nThis lab manual is intended to provide an overview about how we do our work and expectations for our team. It is also a space to document institutional knowledge and available resources. If you have suggestions for additions or changes, please submit a GitHub Issue.\nOur lab manual is adapted from and inspired by the Fay Lab and Huckley Lab’s own manuals as well as the Bren Graduate Student Handbook.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
     ]
@@ -17,6 +17,176 @@
     "text": "Lorem ipsum",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lab Culture and Philosophy</span>"
+    ]
+  },
+  {
+    "objectID": "academics.html",
+    "href": "academics.html",
+    "title": "6  Academics",
+    "section": "",
+    "text": "6.1 Requirements\nThe PhD degree is not based on a unit count. PhD students must take three core ESM courses (10 units) and any other relevant coursework to achieve the academic goals set for the student by the faculty advisor and committee.\nIf you are a Bren master’s graduate continuing to a PhD, your academic clock will be reset to zero.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Academics</span>"
+    ]
+  },
+  {
+    "objectID": "academics.html#registration",
+    "href": "academics.html#registration",
+    "title": "6  Academics",
+    "section": "6.2 Registration",
+    "text": "6.2 Registration\nCourse registration at UCSB is done through Gaucho On-Line Data (GOLD). Registration for each quarter takes place about mid-way through the previous quarter. It your responsibility to keep track of registration pass times and enroll in courses accurately and on time. Before registering for each quarter, you will meet with Ruth to discuss registration plans for the forthcoming quarter (courses and/or research credits).\n\nThe Bren School philosophy is to accommodate all Bren students who want to take a particular Bren course. However, some courses may have limited capacity. If GOLD indicates that a course is full, please email academics@bren.ucsb.edu to inquire about the possibility of adding the course or being added to a waitlist.\n\nThe Graduate Division recommends each full-time graduate student be enrolled in a minimum of 12 units per quarter. However, there is no loss of privileges as long the student is enrolled in at least 8 units.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Academics</span>"
+    ]
+  },
+  {
+    "objectID": "academics.html#courses",
+    "href": "academics.html#courses",
+    "title": "6  Academics",
+    "section": "6.3 Courses",
+    "text": "6.3 Courses\nGraduate courses at UCSB are numbered 200-599. Upper-division undergraduate courses are numbered 100-199. Lower-division undergraduate courses, numbered &lt;100, can never count towards satisfying graduate degree requirements.\nBroadly, Ruth has recommended the following courses:\nEcological Theory\n\nEEMB 508: Levels of Biological Organization I: Individuals and Populations\nEEMB 595A: Ecology and Evolution\nEEMB 595FF: Foundations and Frontiers in Ecology\nEEMB 280: Evolutionary Theory and Models of Behavioral Processes\n\nMethods\n\nEEMB 247: Quantitative Methods in Biology\nEEMB 274: Advanced Biostatistics using Bayesian Methods\nEEMB 279: Ecological Modeling\nGEOG 286: Analysis and Modeling of Movement\n\nRemote Sensing and Earth Science\n\nEARTH 205: Earth’s Climate: Past and Present\nGEOG 202A: Remote Sensing and Environmental Optics\nGEOG 214A: Advanced Remote Sensing: Passive\nGEOG 266: Introduction to Atmospheric Sciences\n\nScience Communication\n\nEEMB 511: Writing Science",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Academics</span>"
+    ]
+  },
+  {
+    "objectID": "academics.html#requirements",
+    "href": "academics.html#requirements",
+    "title": "6  Academics",
+    "section": "",
+    "text": "[Year 1, Fall] ESM 512: Research Ethics and Conduct (2 units)\n[Year 2, Fall] ESM 513 Environmental Research Design (4 units)\n[Year 2, Winter] ESM 514 Collaborative Interdisciplinary Research (4 units)\n\n\n\n6.1.1 Timeline\nThe time-to-degree standards for the Bren School are:\n\nAdvancement to candidacy: 3 years\nDegree completion: 5 years\n\nThere are general milestones/deadlines you will also need to complete:\n\nBren School PhD Annual Review Form, due every fall quarter\n\nEvery winter quarter, a student’s progress and performance is reviewed by the faculty chair of the PhD Program Committee. Before submitting the form, you must convene a meeting of your committee and present a progress report. PhD students in their first year who do not have formal committees meet with their advisor.\n\nForm I: Justification of Proposed PhD Committee, due fall quarter of 2nd year\n\nBy the fall quarter of the second year of study, students must confirm their advisor(s) and select members of their committee. To nominate a committee, you must (1) start the “Create Committee” workflow in GradPoint and (2) complete the Form 1.\n\nPhD Written Exam Form, due 2nd year\n\nThe PhD committee will recommend a reading list as a guide for study and describe the nature of the exam. You must submit the PhD Written Exam Form to the Student Affairs staff within 30 days of the examination.\n\nForm II: Report on Doctoral Degree Qualifying Examinations, due spring quarter of 3rd year\n\nTo advance to candidacy, students must develop and defend a comprehensive dissertation proposal and take an oral qualifying examination by the spring quarter of their 3rd year. You must complete the Form II. Students must complete all PhD core courses prior to scheduling their oral exams.\n\n\nForm III: Report on Doctoral Degree Final Defense\nThis is a general guideline. Each PhD student at Bren follows a unique timeline.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Academics</span>"
+    ]
+  },
+  {
+    "objectID": "academics.html#course-registration",
+    "href": "academics.html#course-registration",
+    "title": "6  Academics",
+    "section": "6.2 Course Registration",
+    "text": "6.2 Course Registration\nCourse registration at UCSB is done through Gaucho On-Line Data (GOLD). Registration for each quarter takes place about mid-way through the previous quarter. It your responsibility to keep track of registration pass times and enroll in courses accurately and on time. Before registering for each quarter, you will meet with Ruth to discuss registration plans for the forthcoming quarter (courses and/or research credits).\n\nThe Bren School philosophy is to accommodate all Bren students who want to take a particular Bren course. However, some courses may have limited capacity. If GOLD indicates that a course is full, please email academics@bren.ucsb.edu to inquire about the possibility of adding the course or being added to a waitlist.\n\nPhD studentsmust be enrolled in a minimum of 12 units per quarter to maintain full-time status and opportunities for financial support.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Academics</span>"
+    ]
+  },
+  {
+    "objectID": "onboarding.html",
+    "href": "onboarding.html",
+    "title": "3  Onboarding",
+    "section": "",
+    "text": "3.1 Timekeeping\nGraduate students are expected to approve their timesheets via UCSB’s Timekeeping system.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Onboarding</span>"
+    ]
+  },
+  {
+    "objectID": "onboarding.html#facilities",
+    "href": "onboarding.html#facilities",
+    "title": "3  Onboarding",
+    "section": "3.2 Facilities",
+    "text": "3.2 Facilities\n\n3.2.1 Key card building & room accesss",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Onboarding</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html",
+    "href": "expectations.html",
+    "title": "4  Expectations",
+    "section": "",
+    "text": "4.1 Communication\nWe communicate via Slack and email. The lab Slack channel is the preferred method of communication for a quick response. You should check your email or Slack at least once a day during the normal work week. You are not expected to be available 24/7 and should not expect responses to emails or messages after regular business hours on weekdays, or on weekends.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
+    ]
+  },
+  {
+    "objectID": "onboarding.html#access-card",
+    "href": "onboarding.html#access-card",
+    "title": "3  Onboarding",
+    "section": "3.2 Access Card",
+    "text": "3.2 Access Card\nAccess Cards are UCSB’s photo identification method, which are used as proof of registration and employment. You will need to purchase an Access Card for 30 USD. This fee will be applied to the student’s BARC account and staff need to complete a recharge form.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Onboarding</span>"
+    ]
+  },
+  {
+    "objectID": "onboarding.html#bren-hall",
+    "href": "onboarding.html#bren-hall",
+    "title": "3  Onboarding",
+    "section": "3.3 Bren Hall",
+    "text": "3.3 Bren Hall\nFun fact: Bren Hall was the first laboratory building in the United States to receive the U.S. Green Building Council’s Platinum LEED accreditation!\n\n3.3.1 After-hours access\nThe Bren School labs and doors are open Monday to Friday from 8 AM to 5 PM.\nOnce you obtain your Access Card, you can request building access through this Building Security form. You will then be granted 24/7 access.\n\n\n3.3.2 Printing\nAt the start of the academic year, students are credited 30 USD for printing fees. The current costs are:\n\nBlack and white prints: 0.03 USD per side\nColor prints: 0.20 USD per side\n\nYou can find a list of Bren printer locations here.\n\n\n3.3.3 Google Calendar\nLab members are expected to maintain and share their general availability using Google Calendar. All lab-related meetings should be scheduled through Google Calendar to ensure coordination.\nGeneral resource calendars include:\n\nThis Week at Bren\nRec Cen Pools",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Onboarding</span>"
+    ]
+  },
+  {
+    "objectID": "onboarding.html#printing",
+    "href": "onboarding.html#printing",
+    "title": "3  Onboarding",
+    "section": "3.4 Printing",
+    "text": "3.4 Printing",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Onboarding</span>"
+    ]
+  },
+  {
+    "objectID": "funding.html",
+    "href": "funding.html",
+    "title": "5  Funding",
+    "section": "",
+    "text": "Ruth does not typically accept students into the lab without being able to guarantee at least five years of funding. At Bren, five-year funding plans for PhD students are highly individualized. These can include a combination of external fellowships, internal fellowships, grants, donor funds, and academic employment (like Teaching Assistantships and Graduate Student Researcher positions).\nYou are encouraged to apply for external funding through graduate scholarships and fellowships, like:\n\nNSF Graduate Research Fellowship Program\nFord Foundation\nGEM Fellowship\nNASA Future Investigators in NASA Earth and Space Science and Technology (FINESST)\n\nAdditional resources like the Society of Conservation Biology’s opportunity document exist.\nRuth will also share funding opportunities as they come up, either to the group or in individual meetings.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Funding</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html#communication",
+    "href": "expectations.html#communication",
+    "title": "4  Expectations",
+    "section": "4.2 Communication",
+    "text": "4.2 Communication",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html#wildlife-bren",
+    "href": "expectations.html#wildlife-bren",
+    "title": "4  Expectations",
+    "section": "4.3 Wildlife @ Bren",
+    "text": "4.3 Wildlife @ Bren",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html#lab-meetings",
+    "href": "expectations.html#lab-meetings",
+    "title": "4  Expectations",
+    "section": "4.2 Lab meetings",
+    "text": "4.2 Lab meetings\nAttendance is generally expected at weekly lab meetings (also known as Wildlife @ Bren). Here, we present research, discuss papers, troubleshoot code, host guest speakers, and undertake professional development activities. We decide on a schedule collaboratively at the start of each quarter. Lab meetings are hybrid to allow for full participation. We host our in-person meetings at Bren’s Visitor Center.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html#weekly-meetings-11",
+    "href": "expectations.html#weekly-meetings-11",
+    "title": "4  Expectations",
+    "section": "4.3 Weekly meetings (1:1)",
+    "text": "4.3 Weekly meetings (1:1)\nRuth generally meets with lab members weekly. During this meeting, we’ll review progress on the previous week’s goals and set goals for the next week.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
+    ]
+  },
+  {
+    "objectID": "expectations.html#mentorship",
+    "href": "expectations.html#mentorship",
+    "title": "4  Expectations",
+    "section": "4.4 Mentorship",
+    "text": "4.4 Mentorship\nRuth annualy meets with students and staff to re-visit and hone their Individual Development Plans (IDPs) for their short-, medium-, and long-term goals. Each advisor-student relationship may look different depending on the career status, goals, and overall dynamics. IDPs help us align expectations in mentorship and facilitate communication between advisor/student.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Expectations</span>"
     ]
   }
 ]

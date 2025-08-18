@@ -4,4 +4,8 @@ title: "Welcome"
 
 Welcome to our lab manual!
 
-We are the Oliver Lab at UC Santa Barbara's Bren School of Environmental Science & Management.
+We are the Oliver Lab at UC Santa Barbara's Bren School of Environmental Science & Management. Our group works to create new perspectives on how humans and wildlife can coexist in an era of rapid change. More about our group’s research activity can be found on [our website](oliverlab.org){target="_blank"}.
+
+This lab manual is intended to provide an overview about how we do our work and expectations for our team. It is also a space to document institutional knowledge and available resources. If you have suggestions for additions or changes, please submit a [GitHub Issue](https://github.com/ryoliver-lab/lab-manual){target="_blank"}.
+
+Our lab manual is adapted from and inspired by the Fay Lab and Huckley Lab's own manuals as well as the [Bren Graduate Student Handbook](https://bren.ucsb.edu/sites/default/files/2024-25%20Bren%20Graduate%20Student%20Handbook.docx.pdf){target="_blank"}.
