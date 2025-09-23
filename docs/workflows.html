@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Workflows and Best Practices – Oliver Lab Manual</title>
+<title>7&nbsp; Lab Data Access – Oliver Lab Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflows and Best Practices</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab Data Access</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflows.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflows and Best Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab Data Access</span></span></a>
   </div>
 </li>
     </ul>
@@ -157,7 +191,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#commands-on-pod" id="toc-commands-on-pod" class="nav-link active" data-scroll-target="#commands-on-pod"><span class="header-section-number">7.1</span> Commands on Pod</a></li>
+  <li><a href="#ssh-key-pairs" id="toc-ssh-key-pairs" class="nav-link active" data-scroll-target="#ssh-key-pairs"><span class="header-section-number">7.1</span> SSH key pairs</a>
+  <ul class="collapse">
+  <li><a href="#generate-a-key-pair" id="toc-generate-a-key-pair" class="nav-link" data-scroll-target="#generate-a-key-pair"><span class="header-section-number">7.1.1</span> Generate a key pair</a></li>
+  <li><a href="#upload-the-public-key" id="toc-upload-the-public-key" class="nav-link" data-scroll-target="#upload-the-public-key"><span class="header-section-number">7.1.2</span> Upload the public key</a></li>
+  <li><a href="#ensure-correct-permissions" id="toc-ensure-correct-permissions" class="nav-link" data-scroll-target="#ensure-correct-permissions"><span class="header-section-number">7.1.3</span> Ensure correct permissions</a></li>
+  <li><a href="#understanding-user-permissions" id="toc-understanding-user-permissions" class="nav-link" data-scroll-target="#understanding-user-permissions"><span class="header-section-number">7.1.4</span> Understanding user permissions</a></li>
+  <li><a href="#accessing-nextcloud-storage-via-ssh" id="toc-accessing-nextcloud-storage-via-ssh" class="nav-link" data-scroll-target="#accessing-nextcloud-storage-via-ssh"><span class="header-section-number">7.1.5</span> Accessing Nextcloud Storage via SSH</a></li>
+  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux"><span class="header-section-number">7.1.6</span> tmux</a></li>
+  <li><a href="#rsync" id="toc-rsync" class="nav-link" data-scroll-target="#rsync"><span class="header-section-number">7.1.7</span> rsync</a></li>
+  <li><a href="#check-directory-and-file-contents" id="toc-check-directory-and-file-contents" class="nav-link" data-scroll-target="#check-directory-and-file-contents"><span class="header-section-number">7.1.8</span> Check directory and file contents</a></li>
+  <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases"><span class="header-section-number">7.1.9</span> Aliases</a></li>
+  <li><a href="#accessing-nextcloud-storage-via-a-browser" id="toc-accessing-nextcloud-storage-via-a-browser" class="nav-link" data-scroll-target="#accessing-nextcloud-storage-via-a-browser"><span class="header-section-number">7.1.10</span> Accessing Nextcloud Storage via a browser</a></li>
+  </ul></li>
+  <li><a href="#commands-on-pod" id="toc-commands-on-pod" class="nav-link" data-scroll-target="#commands-on-pod"><span class="header-section-number">7.2</span> Commands on Pod</a></li>
   </ul>
 </nav>
     </div>
@@ -166,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Workflows and Best Practices</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab Data Access</span></h1>
 </div>
 
 
@@ -183,9 +230,138 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This chapter contains information about how we run analysis locally and on UCSB’s HPC clusters.</p>
-<section id="commands-on-pod" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="commands-on-pod"><span class="header-section-number">7.1</span> Commands on Pod</h2>
+<section id="ssh-key-pairs" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="ssh-key-pairs"><span class="header-section-number">7.1</span> SSH key pairs</h2>
+<p>SSH = “secure shell”, a network protocol that establishes encrypted connections between machines for remote access</p>
+<p>SSH key pairs are 2 files you generate on your machine that authenticate you on another machine via encryption and then decryption. One file is only stored locally, and the other is your “public” key that you upload to the destination server.</p>
+<ul>
+<li>SSH keys are optional on many servers, but required for others like GRIT. When they are optional, you can alternatively login by being prompted for your password in your IDE.</li>
+<li>An extra step of creating a passkey for your authentication is optional, just an extra layer of security. When you are prompted for this, your password is hidden.</li>
+<li>When you SSH to the destination server, the encryption &amp; decryption of the key files authenticates you.</li>
+</ul>
+<section id="generate-a-key-pair" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="generate-a-key-pair"><span class="header-section-number">7.1.1</span> Generate a key pair</h3>
+<p><a href="https://man7.org/linux/man-pages/man1/ssh-keygen.1.html">ssh-keygen man page</a></p>
+<p>Generate a key pair on your source machine (laptop or server).</p>
+<ul>
+<li>The string portion will be tagged onto the end of the public key, insert something that will help the destination server admins attribute this key to you, like your email. (<code>-C</code> = “comment”)</li>
+<li>The “ed25519” part represents the algorithm used to generate the key: Edwards-curve Digital Signature Algorithm. It’s newer and stronger than old algorithms like “RSA”, produces smaller keys, generates keys faster, and importantly is supported by both Linux and Mac</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"some_string"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>2 files are generated: <code>~/.ssh/id_ed25519</code> and <code>~/.ssh/id_ed25519.pub</code></p>
+<p><img src="images/2_files_generated.png" class="img-fluid"></p>
+<p>You can use the same key pair for multiple destination machines, making it easier to manage because you don’t have to keep track of each pair, but this also poses more of a risk if it’s compromised.</p>
+</section>
+<section id="upload-the-public-key" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="upload-the-public-key"><span class="header-section-number">7.1.2</span> Upload the public key</h3>
+<p>For GRIT, upload your pub key through <a href="https://selfservice.grit.ucsb.edu/?action=changesshkey">this form.</a></p>
+<p>Normally, you would be responsible for uploading the <strong>public</strong> key to the server yourself with this command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> <span class="at">-i</span> ~/.ssh/id_ed25519_vscode.pub username@remote.server.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command does not generate a new file on the destination server, it just adds a line to the <code>~/.ssh/authorized_keys</code> file. Then on your local machine, you would add this host to your IDE config so it looks like this:</p>
+<pre><code>Host server_name.cnsi.ucsb.edu
+  HostName server_name.cnsi.ucsb.edu
+  User your_username
+  IdentityFile ~/.ssh/id_ed25519_name_of_file</code></pre>
+<p>Now you will be able to SSH in the command line with just <code>ssh server_name.cnsi.ucsb.edu</code> and just select the remote hostname in your IDE without typing in a password.</p>
+</section>
+<section id="ensure-correct-permissions" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="ensure-correct-permissions"><span class="header-section-number">7.1.3</span> Ensure correct permissions</h3>
+<p>Ensure you have the right directory and file permissions set. The <code>~/.ssh</code> directory should be private, and the private key file itself should be readable and writable only by you. The public key should be readable by everyone.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 700 ~/.ssh                  <span class="co"># only owner can access (rw-------)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 600 ~/.ssh/id_ed25519       <span class="co"># only readable, writable, and executable by me (rwx------)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 644 ~/.ssh/id_ed25519.pub   <span class="co"># readable by everyone (rw-r--r--)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>SSH will refuse insecure keys. If you get a permission denied error, it is likely that the directory or file permissions are too open. SSH is looking out for you! Here’s an example of this error message:</p>
+<p><img src="images/perm_denied.png" class="img-fluid"></p>
+</section>
+<section id="understanding-user-permissions" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="understanding-user-permissions"><span class="header-section-number">7.1.4</span> Understanding user permissions</h3>
+<p>User, group, and other have permissions outlined when you run <code>ls -al</code>.</p>
+<p><img src="images/permissions_ssh_dir.png" class="img-fluid"></p>
+<p><img src="images/permissions_private_key.png" class="img-fluid"></p>
+<p>The first character designates it as a file (<code>-</code>) or direcotry (<code>d</code>). After the first character, the following 3 are the user permissions, the next 3 are the group permissions, and the last 3 are the permissions for other.</p>
+<p>r = “read”, w = “write”, x = “execute” (run script)</p>
+</section>
+<section id="accessing-nextcloud-storage-via-ssh" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="accessing-nextcloud-storage-via-ssh"><span class="header-section-number">7.1.5</span> Accessing Nextcloud Storage via SSH</h3>
+<p>Specify the local key file within the command.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-i</span> ~/.ssh/id_ed25519 username@ssh.grit.ucsb.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Access destination directories <code>username@ssh.grit.ucsb.edu:/home/oliver-lab</code> or <code>username@ssh.grit.ucsb.edu:/home/username</code></li>
+<li>If you set up a passkey when you generated the key pair, you will be prompted to enter it</li>
+<li>The first time, seeing a warning “The authenticity of host can’t be established” is not reason for concern. Continue logging in.</li>
+<li>There are several other SSH endpoints within GRIT, but this is the only one that works for me. I expect more to work over time.</li>
+</ul>
+<p><img src="images/ssh_login_grit.png" class="img-fluid"></p>
+<p>In order to break the connection, kill the terminal or use the <code>exit</code> command.</p>
+<p><img src="images/exit.png" class="img-fluid"></p>
+</section>
+<section id="tmux" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="tmux"><span class="header-section-number">7.1.6</span> tmux</h3>
+<p>It’s always wise to use a persistent shell when making transfers a large amount of data or files.</p>
+<p><a href="https://tmuxcheatsheet.com/">tmux cheat sheet</a></p>
+<p>You can name your tmux sessions, but the default name for a session is “0”</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> ls</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> attach <span class="at">-t</span> 0</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> kill-session <span class="at">-t</span> 0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A tmux terminal is designated by a green bar at the bottom:</p>
+<p><img src="images/tmux_window.png" class="img-fluid"></p>
+<p>Note: If you do not use a tmux session and your terminal is killed midway through an rsync, the process will abort. But you can just run the same rsync command again and it will pick up where it left off, checking that some files were already transferred.</p>
+</section>
+<section id="rsync" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="rsync"><span class="header-section-number">7.1.7</span> rsync</h3>
+<p>See the Options Summary section of the <a href="https://linux.die.net/man/1/rsync">man page</a></p>
+<ul>
+<li>When making transfers within the same machine, common to use <code>-a</code> archive mode, which is a combination of multiple options: <code>-rlptgoD</code>
+<ul>
+<li><code>-r</code> recursive, use when transferring a directory hierarchy</li>
+<li><code>-l</code> copy symlinks as symlinks</li>
+<li><code>-p</code> preserve permissions</li>
+<li><code>-t</code> preserve timestamps (good practice)</li>
+<li><code>-g</code> preserve group</li>
+<li><code>-o</code> preserve owner</li>
+<li><code>-D</code> copies device files as such (like those in <code>/dev</code> directories) and preserve special files, not necessary for our purposes</li>
+</ul></li>
+<li>Include <code>-z</code> for compression</li>
+<li>Include <code>--dry-run</code> when want to see what will be transferred before executing.</li>
+<li>Include <code>-v</code> for verbose if you want to see what is being copied in real time.</li>
+<li>When specifying the source directory, including a trailing slash will transfer everything <em>within</em> the directory but not the top level dir. Usually we want to transfer the top level dir, so omit the trailing slash.</li>
+<li>Ensure the quotes are not fancy. Re-type the quotes before running the rsync command if copied the command from another text editor.</li>
+<li>When using an SSH key pair, include the filename for the file in the command so rsync knows where to pull from.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-tvr</span> <span class="at">-e</span> <span class="st">"ssh -i ~/.ssh/id_ed25519"</span> safegraph jscohen@ssh.grit.ucsb.edu:/home/oliver-lab/covid/covid-raw-data/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="check-directory-and-file-contents" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="check-directory-and-file-contents"><span class="header-section-number">7.1.8</span> Check directory and file contents</h3>
+<p>Check number of files in a directory, recursively</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> directory_name <span class="at">-type</span> f <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check number of bytes in a directory, summing up all files recursively, auto-scaling the bytes to human readable format (MB, GB, etc.). Note that this number can vary slightly accross machines with the same data due to metadata overhead.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-sh</span> directory_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/du_command.png" class="img-fluid"></p>
+<p>Check if files are identical using SHA256 checksums (string that uniquely represents file contents).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sha256</span> file1.txt file2.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/sha256_example.png" class="img-fluid"></p>
+<p>Check if files are identical by comparing bytes. No output means they are the same.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmp</span> file1.txt file2.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/cmp_example.png" class="img-fluid"></p>
+</section>
+<section id="aliases" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="aliases"><span class="header-section-number">7.1.9</span> Aliases</h3>
+<p>Commands you run often can be made into a shortcut. This is simply a line added to your <code>~/.bashrc</code> script:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> myalias=<span class="st">"command_to_execute"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then open a new terminal so the <code>.bashrc</code> script is loaded.</p>
+<p>I created an alias for my SSH login to grit: <img src="images/bashrc.png" class="img-fluid"></p>
+<p><img src="images/alias.png" class="img-fluid"></p>
+</section>
+<section id="accessing-nextcloud-storage-via-a-browser" class="level3" data-number="7.1.10">
+<h3 data-number="7.1.10" class="anchored" data-anchor-id="accessing-nextcloud-storage-via-a-browser"><span class="header-section-number">7.1.10</span> Accessing Nextcloud Storage via a browser</h3>
+<p><a href="https://nextcloud.grit.ucsb.edu/index.php/apps/files/files">https://nextcloud.grit.ucsb.edu/index.php/apps/files/files</a></p>
+<p><img src="images/nextcloud_browser.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="commands-on-pod" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="commands-on-pod"><span class="header-section-number">7.2</span> Commands on Pod</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 53%">

@@ -1,8 +1,202 @@
 ---
-title: "Workflows and Best Practices"
+title: "Lab Data Access"
 ---
 
-This chapter contains information about how we run analysis locally and on UCSB's HPC clusters. 
+## SSH key pairs
+
+SSH = "secure shell", a network protocol that establishes encrypted connections between machines for remote access
+
+SSH key pairs are 2 files you generate on your machine that authenticate you on another machine via encryption and then decryption. One file is only stored locally, and the other is your "public" key that you upload to the destination server.
+
+- SSH keys are optional on many servers, but required for others like GRIT. When they are optional, you can alternatively login by being prompted for your password in your IDE.
+- An extra step of creating a passkey for your authentication is optional, just an extra layer of security. When you are prompted for this, your password is hidden. 
+- When you SSH to the destination server, the encryption & decryption of the key files authenticates you.
+
+### Generate a key pair
+
+[ssh-keygen man page](https://man7.org/linux/man-pages/man1/ssh-keygen.1.html)
+
+Generate a key pair on your source machine (laptop or server).
+
+- The string portion will be tagged onto the end of the public key, insert something that will help the destination server admins attribute this key to you, like your email. (`-C` = "comment")
+- The "ed25519" part represents the algorithm used to generate the key: Edwards-curve Digital Signature Algorithm. It's newer and stronger than old algorithms like "RSA", produces smaller keys, generates keys faster, and importantly is supported by both Linux and Mac
+
+```bash
+cd ~
+ssh-keygen -t ed25519 -C "some_string"
+```
+
+2 files are generated: `~/.ssh/id_ed25519` and `~/.ssh/id_ed25519.pub`
+
+![](images/2_files_generated.png)
+
+You can use the same key pair for multiple destination machines, making it easier to manage because you don't have to keep track of each pair, but this also poses more of a risk if it's compromised.
+
+### Upload the public key
+
+For GRIT, upload your pub key through [this form.](https://selfservice.grit.ucsb.edu/?action=changesshkey)
+
+Normally, you would be responsible for uploading the **public** key to the server yourself with this command:
+
+```bash
+ssh-copy-id -i ~/.ssh/id_ed25519_vscode.pub username@remote.server.edu
+```
+
+This command does not generate a new file on the destination server, it just adds a line to the `~/.ssh/authorized_keys` file. Then on your local machine, you would add this host to your IDE config so it looks like this:
+
+```
+Host server_name.cnsi.ucsb.edu
+  HostName server_name.cnsi.ucsb.edu
+  User your_username
+  IdentityFile ~/.ssh/id_ed25519_name_of_file
+```
+
+Now you will be able to SSH in the command line with just `ssh server_name.cnsi.ucsb.edu` and just select the remote hostname in your IDE without typing in a password.
+
+### Ensure correct permissions
+
+Ensure you have the right directory and file permissions set. The `~/.ssh` directory should be private, and the private key file itself should be readable and writable only by you. The public key should be readable by everyone.
+
+```bash
+chmod 700 ~/.ssh                  # only owner can access (rw-------)
+chmod 600 ~/.ssh/id_ed25519       # only readable, writable, and executable by me (rwx------)
+chmod 644 ~/.ssh/id_ed25519.pub   # readable by everyone (rw-r--r--)
+```
+
+SSH will refuse insecure keys. If you get a permission denied error, it is likely that the directory or file permissions are too open. SSH is looking out for you! Here's an example of this error message:
+
+![](images/perm_denied.png)
+
+### Understanding user permissions
+
+User, group, and other have permissions outlined when you run `ls -al`.
+
+![](images/permissions_ssh_dir.png)
+
+![](images/permissions_private_key.png)
+
+The first character designates it as a file (`-`) or direcotry (`d`). After the first character, the following 3 are the user permissions, the next 3 are the group permissions, and the last 3 are the permissions for other. 
+
+r = "read", w = "write", x = "execute" (run script)
+
+### Accessing Nextcloud Storage via SSH
+
+Specify the local key file within the command.
+
+```bash
+ssh -i ~/.ssh/id_ed25519 username@ssh.grit.ucsb.edu
+```
+
+- Access destination directories `username@ssh.grit.ucsb.edu:/home/oliver-lab` or `username@ssh.grit.ucsb.edu:/home/username`
+- If you set up a passkey when you generated the key pair, you will be prompted to enter it
+- The first time, seeing a warning "The authenticity of host can't be established" is not reason for concern. Continue logging in. 
+- There are several other SSH endpoints within GRIT, but this is the only one that works for me. I expect more to work over time.
+
+![](images/ssh_login_grit.png)
+
+In order to break the connection, kill the terminal or use the `exit` command.
+
+![](images/exit.png)
+
+### tmux
+
+It's always wise to use a persistent shell when making transfers a large amount of data or files.
+
+[tmux cheat sheet](https://tmuxcheatsheet.com/)
+
+You can name your tmux sessions, but the default name for a session is "0"
+
+```bash
+tmux
+tmux ls
+tmux attach -t 0
+tmux kill-session -t 0
+```
+
+A tmux terminal is designated by a green bar at the bottom:
+
+![](images/tmux_window.png)
+
+Note: If you do not use a tmux session and your terminal is killed midway through an rsync, the process will abort. But you can just run the same rsync command again and it will pick up where it left off, checking that some files were already transferred. 
+
+### rsync
+
+See the Options Summary section of the [man page](https://linux.die.net/man/1/rsync)
+
+- When making transfers within the same machine, common to use `-a` archive mode, which is a combination of multiple options: `-rlptgoD`
+  - `-r` recursive, use when transferring a directory hierarchy
+  - `-l` copy symlinks as symlinks
+  - `-p` preserve permissions
+  - `-t` preserve timestamps (good practice)
+  - `-g` preserve group
+  - `-o` preserve owner
+  - `-D` copies device files as such (like those in `/dev` directories) and preserve special files, not necessary for our purposes
+- Include `-z` for compression
+- Include `--dry-run` when want to see what will be transferred before executing. 
+- Include `-v` for verbose if you want to see what is being copied in real time.
+- When specifying the source directory, including a trailing slash will transfer everything *within* the directory but not the top level dir. Usually we want to transfer the top level dir, so omit the trailing slash.
+- Ensure the quotes are not fancy. Re-type the quotes before running the rsync command if copied the command from another text editor.
+- When using an SSH key pair, include the filename for the file in the command so rsync knows where to pull from. 
+
+```bash
+rsync -tvr -e "ssh -i ~/.ssh/id_ed25519" safegraph jscohen@ssh.grit.ucsb.edu:/home/oliver-lab/covid/covid-raw-data/
+```
+
+### Check directory and file contents
+
+Check number of files in a directory, recursively
+
+```bash
+find directory_name -type f | wc -l
+```
+
+Check number of bytes in a directory, summing up all files recursively, auto-scaling the bytes to human readable format (MB, GB, etc.). Note that this number can vary slightly accross machines with the same data due to metadata overhead.
+
+```bash
+du -sh directory_name
+```
+
+![](images/du_command.png)
+
+Check if files are identical using SHA256 checksums (string that uniquely represents file contents).
+
+```bash
+sha256 file1.txt file2.txt
+```
+
+![](images/sha256_example.png)
+
+Check if files are identical by comparing bytes. No output means they are the same.
+
+```bash
+cmp file1.txt file2.txt
+```
+
+![](images/cmp_example.png)
+
+### Aliases
+
+Commands you run often can be made into a shortcut. This is simply a line added to your `~/.bashrc` script:
+
+```bash
+alias myalias="command_to_execute"
+```
+
+Then open a new terminal so the `.bashrc` script is loaded.
+
+
+I created an alias for my SSH login to grit:
+![](images/bashrc.png)
+
+![](images/alias.png)
+
+### Accessing Nextcloud Storage via a browser
+
+[https://nextcloud.grit.ucsb.edu/index.php/apps/files/files](https://nextcloud.grit.ucsb.edu/index.php/apps/files/files)
+
+![](images/nextcloud_browser.png)
+
+
 
 ## Commands on Pod
 
