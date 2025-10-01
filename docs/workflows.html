@@ -252,6 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>2 files are generated: <code>~/.ssh/id_ed25519</code> and <code>~/.ssh/id_ed25519.pub</code></p>
 <p><img src="images/2_files_generated.png" class="img-fluid"></p>
 <p>You can use the same key pair for multiple destination machines, making it easier to manage because you don’t have to keep track of each pair, but this also poses more of a risk if it’s compromised.</p>
+<p>If you get an output saying you already have a key with that name, you can save it to a different directory (it may prompt you to enter a new location that by default is <code>~</code>) and then just rename it and move it to the <code>.ssh</code> dir.</p>
 </section>
 <section id="upload-the-public-key" class="level3" data-number="7.1.2">
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="upload-the-public-key"><span class="header-section-number">7.1.2</span> Upload the public key</h3>

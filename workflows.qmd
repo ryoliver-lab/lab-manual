@@ -32,6 +32,8 @@ ssh-keygen -t ed25519 -C "some_string"
 
 You can use the same key pair for multiple destination machines, making it easier to manage because you don't have to keep track of each pair, but this also poses more of a risk if it's compromised.
 
+If you get an output saying you already have a key with that name, you can save it to a different directory (it may prompt you to enter a new location that by default is `~`) and then just rename it and move it to the `.ssh` dir. 
+
 ### Upload the public key
 
 For GRIT, upload your pub key through [this form.](https://selfservice.grit.ucsb.edu/?action=changesshkey)
