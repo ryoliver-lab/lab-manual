@@ -6,10 +6,11 @@ Ruth does not typically accept students into the lab without being able to guara
 
 You are encouraged to apply for external funding through graduate scholarships and fellowships, like:
 
-- NSF Graduate Research Fellowship Program
+- NSF Graduate Research Fellowship Program (NSF GRFP)
 - Ford Foundation
 - GEM Fellowship
 - NASA Future Investigators in NASA Earth and Space Science and Technology (FINESST)
+- Department of Energy Computational Science Graduate Fellowship (DOE CSGF) 
 
 Additional resources like [the Society of Conservation Biology's opportunity document](https://docs.google.com/document/d/1-xF9qw2B2hirk5MpNRICv_M3tZZOAHJnO-UmdT-ZSuw/edit?tab=t.0) exist.
 

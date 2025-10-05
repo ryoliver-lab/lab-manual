@@ -6,11 +6,20 @@ This chapter contains some resources to help you get settled into Bren and the O
 
 ## Timekeeping
 
-Graduate students are expected to approve their timesheets via [UCSB's Timekeeping system](https://www.timekeeping.ucsb.edu/){target="_blank"}. 
+Lab members are expected to approve their timesheets via [UCSB's Timekeeping system](https://www.timekeeping.ucsb.edu/){target="_blank"}. 
 
 ## Access Card
 
 Access Cards are UCSB's photo identification method, which are used as proof of registration and employment. You will need to purchase an [Access Card](https://ucsbaccesscard.com/){target="_blank"} for 30 USD. This fee will be applied to the student's BARC account and staff need to complete a [recharge form](https://drive.google.com/file/d/1QM147DJjglBjFtcXJokyBvkmLyH_5c0r/view){target="_blank"}.
+
+## Google Calendar
+
+Lab members are expected to maintain and share their general availability using Google Calendar. All lab-related meetings should be scheduled through Google Calendar to ensure coordination.
+
+General resource calendars also exist, some which you may wish to save:
+
+- [This Week at Bren](https://calendar.google.com/calendar/embed?src=c_188ejneievnc2jvbh6u04rcr0i3ie%40resource.calendar.google.com&ctz=America%2FLos_Angeles){target="_blank"}
+- [Rec Cen Pools](https://calendar.google.com/calendar/embed?src=c_5971f4dc4528bc20261932eb183b5e88b02dc0815950758798820d4b6d9668c5%40group.calendar.google.com&ctz=America%2FLos_Angeles){target="_blank"}
 
 ## Bren Hall
 
@@ -30,12 +39,3 @@ At the start of the academic year, students are credited 30 USD for printing fee
 - Color prints: 0.20 USD per side
 
 You can find a list of Bren printer locations [here](https://bren.zendesk.com/hc/en-us/articles/207853003-List-of-Bren-Printers-and-Locations){target="_blank"}.
-
-### Google Calendar
-
-Lab members are expected to maintain and share their general availability using Google Calendar. All lab-related meetings should be scheduled through Google Calendar to ensure coordination.
-
-General resource calendars include:
-
-- [This Week at Bren](https://calendar.google.com/calendar/embed?src=c_188ejneievnc2jvbh6u04rcr0i3ie%40resource.calendar.google.com&ctz=America%2FLos_Angeles){target="_blank"}
-- [Rec Cen Pools](https://calendar.google.com/calendar/embed?src=c_5971f4dc4528bc20261932eb183b5e88b02dc0815950758798820d4b6d9668c5%40group.calendar.google.com&ctz=America%2FLos_Angeles){target="_blank"}

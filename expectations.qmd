@@ -10,7 +10,7 @@ We communicate via Slack and email. The lab Slack channel is the preferred metho
 
 ## Lab meetings
 
-Attendance is generally expected at weekly lab meetings (also known as **Wildlife @ Bren**). Here, we present research, discuss papers, troubleshoot code, host guest speakers, and undertake professional development activities. We decide on a schedule collaboratively at the start of each quarter. Lab meetings are hybrid to allow for full participation. We host our in-person meetings at Bren's Visitor Center. 
+Attendance is generally expected at weekly lab meetings (also known as **Wildlife @ Bren**). Here, we present research, discuss papers, troubleshoot code, host guest speakers, and undertake professional development activities. We decide on a schedule collaboratively at the start of each quarter. Lab meetings are hybrid to allow for full participation. Our meeting location is announced via [wildlife@bren.ucsb.edu](mailto:wildlife@bren.ucsb.edu).
 
 ## Weekly meetings (1:1)
 
@@ -18,4 +18,4 @@ Ruth generally meets with lab members weekly. During this meeting, we’ll revie
 
 ## Mentorship
 
-Ruth annualy meets with students and staff to re-visit and hone their [Individual Development Plans (IDPs)](https://www.science.org/content/article/editorial-planning-career-paths-phds) for their short-, medium-, and long-term goals. Each advisor-student relationship may look different depending on the career status, goals, and overall dynamics. IDPs help us align expectations in mentorship and facilitate communication between advisor/student. 
+Ruth annualy meets with students and staff to re-visit and hone their [Individual Development Plans (IDPs)](https://www.science.org/content/article/editorial-planning-career-paths-phds) for their short-, medium-, and long-term goals. Each PI-lab member relationship may look different depending on the career status, goals, and overall dynamics. IDPs help us align expectations in mentorship and facilitate communication between the pair.

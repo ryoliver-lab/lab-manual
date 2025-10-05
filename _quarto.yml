@@ -7,7 +7,6 @@ book:
   date: today
   chapters:
     - index.qmd
-    - culture.qmd
     - onboarding.qmd
     - expectations.qmd
     - funding.qmd

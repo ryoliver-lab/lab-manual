@@ -1,15 +1,21 @@
 ---
-title: "Lab Data Access"
+title: "Data Access"
 ---
 
-## SSH key pairs
+This chapter contains information about (1) where we store and access data and (2) how we run analysis on UCSB's HPC clusters. 
 
-SSH = "secure shell", a network protocol that establishes encrypted connections between machines for remote access
+## Set up SSH key pairs
 
-SSH key pairs are 2 files you generate on your machine that authenticate you on another machine via encryption and then decryption. One file is only stored locally, and the other is your "public" key that you upload to the destination server.
+**SSH** refers to "secure shell", which is a network protocol that establishes encrypted connections between machines for remote access.
+
+SSH key pairs are two files you generate on your machine that authenticate you on another machine via encryption and then decryption: one file is only stored locally, and the other is your "public" key that you upload to the destination server.
+
+A few things to note: 
 
 - SSH keys are optional on many servers, but required for others like GRIT. When they are optional, you can alternatively login by being prompted for your password in your IDE.
-- An extra step of creating a passkey for your authentication is optional, just an extra layer of security. When you are prompted for this, your password is hidden. 
+
+- An extra step of creating a passkey for your authentication is optional (it's an extra layer of security). When you are prompted for this, your password is hidden. 
+
 - When you SSH to the destination server, the encryption & decryption of the key files authenticates you.
 
 ### Generate a key pair
@@ -19,7 +25,8 @@ SSH key pairs are 2 files you generate on your machine that authenticate you on 
 Generate a key pair on your source machine (laptop or server).
 
 - The string portion will be tagged onto the end of the public key, insert something that will help the destination server admins attribute this key to you, like your email. (`-C` = "comment")
-- The "ed25519" part represents the algorithm used to generate the key: Edwards-curve Digital Signature Algorithm. It's newer and stronger than old algorithms like "RSA", produces smaller keys, generates keys faster, and importantly is supported by both Linux and Mac
+
+- The "ed25519" part represents the algorithm used to generate the key: Edwards-curve Digital Signature Algorithm. It's newer and stronger than old algorithms like "RSA", produces smaller keys, generates keys faster, and importantly is supported by both Linux and Mac.
 
 ```bash
 cd ~
@@ -81,7 +88,7 @@ The first character designates it as a file (`-`) or direcotry (`d`). After the 
 
 r = "read", w = "write", x = "execute" (run script)
 
-### Accessing Nextcloud Storage via SSH
+## Access Nextcloud Storage via SSH
 
 Specify the local key file within the command.
 
@@ -192,12 +199,11 @@ I created an alias for my SSH login to grit:
 
 ![](images/alias.png)
 
-### Accessing Nextcloud Storage via a browser
+## Accessing Nextcloud Storage via browser
 
 [https://nextcloud.grit.ucsb.edu/index.php/apps/files/files](https://nextcloud.grit.ucsb.edu/index.php/apps/files/files)
 
 ![](images/nextcloud_browser.png)
-
 
 
 ## Commands on Pod

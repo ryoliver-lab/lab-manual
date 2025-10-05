@@ -35,10 +35,9 @@ There are general milestones/deadlines you will also need to complete:
 **Form II: Report on Doctoral Degree Qualifying Examinations**, due spring quarter of 3<sup>rd</sup> year
 : To advance to candidacy, students must develop and defend a comprehensive dissertation proposal and take an oral qualifying examination by the spring quarter of their 3<sup>rd</sup> year. You must complete the Form II. Students must complete all PhD core courses prior to scheduling their oral exams.
 
-
 **Form III: Report on Doctoral Degree Final Defense**
 
-This is a general guideline. Each PhD student at Bren follows a unique timeline.
+Each PhD student at Bren follows a unique timeline. Your progress may look different.
 
 ## Course Registration
 
@@ -66,22 +65,20 @@ Broadly, Ruth has recommended the following courses:
 
 **Methods**
 
-- EEMB 247: Quantitative Methods in Biology
-- EEMB 274: Advanced Biostatistics using Bayesian Methods 
 - EEMB 279: Ecological Modeling
 - GEOG 286: Analysis and Modeling of Movement
+- GEOG 276: Time Series Analysis
+- GEOG 279: Applied Statistics for Geography (Introduction to Causal Analysis in Space)
 
 **Remote Sensing and Earth Science**
 
 - EARTH 205: Earth's Climate: Past and Present
 - GEOG 202A: Remote Sensing and Environmental Optics
 - GEOG 214A: Advanced Remote Sensing: Passive
-- GEOG 266: Introduction to Atmospheric Sciences
 
 **Science Communication**
 
 - EEMB 511: Writing Science
-
 
 
 
