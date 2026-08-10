@@ -2,7 +2,39 @@
 title: "Data Access"
 ---
 
-This chapter contains information about (1) where we store and access data and (2) how we run analysis on UCSB's HPC clusters. 
+This chapter contains information about (1) where we store and access data and (2) how we run analyses on UCSB's HPC clusters. 
+
+## Data Storage
+
+We store our inpute data and workflow outputs on UCSB's GRIT server NextCloud. We pay per TB/year for this storage, so we're mindful to not unnecessarily store old data there indefinitely. "Data" here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project's Google Drive.
+
+The rule of thumb for database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions. Database filenames include the date they were generated with the format `YYYYMMDD` that is associated with a git commit or repo release on that same date. Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future. 
+
+Each directory includes a `README.md` describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents. 
+
+**Data encryption:** Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.
+
+**Access control:** Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.
+
+**Network security:** The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.
+
+**Auditability and monitoring:** User actions and system activity are logged to provide audit trails for security and operational review. Monitoring tools are used to detect abnormal behavior, failed login attempts, or service disruptions.
+
+**Operational security:** The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment. 
+
+**Backups:** Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.
+
+**Communication** In order to communicate with the GRIT / NextCloud team, open a ticket on [Zammad](https://zammad.grit.ucsb.edu/#ticket/view/my_tickets).
+
+## Accessing Nextcloud Storage via the browser
+
+This is the simplest way to access the data and is sufficient for uploading and downloading small amounts of data or a few files.
+
+[https://nextcloud.grit.ucsb.edu/index.php/apps/files/files](https://nextcloud.grit.ucsb.edu/index.php/apps/files/files)
+
+![](images/nextcloud_browser.png)
+
+For larger data downloads to your laptop, use the command line (see SSH instructions in the next section). Use the [Globus](https://www.globus.org/) website or Globus command line tool if transferring a large amount of data between UCSB and Smithsonian institutions (see Globus section below).
 
 ## Set up SSH key pairs
 
@@ -84,9 +116,11 @@ User, group, and other have permissions outlined when you run `ls -al`.
 
 ![](images/permissions_private_key.png)
 
-The first character designates it as a file (`-`) or direcotry (`d`). After the first character, the following 3 are the user permissions, the next 3 are the group permissions, and the last 3 are the permissions for other. 
+The first character designates it as a file (`-`) or directory (`d`). After the first character, the following 3 are the user permissions, the next 3 are the group permissions, and the last 3 are the permissions for other. 
 
 r = "read", w = "write", x = "execute" (run script)
+
+**If you have private data stored on a UCSB server like pod, you also need to make sure your data directory has these owner-only `chmod 700` permissions!**
 
 ## Access Nextcloud Storage via SSH
 
@@ -151,6 +185,28 @@ See the Options Summary section of the [man page](https://linux.die.net/man/1/rs
 rsync -tvr -e "ssh -i ~/.ssh/id_ed25519" safegraph jscohen@ssh.grit.ucsb.edu:/home/oliver-lab/covid/covid-raw-data/
 ```
 
+### Globus
+
+Use the Globus website or command line tool to transfer large amounts of data from UCSB to Smithsonian's server, which has set up a guest collection. If using the browser, you will need to login to both instutions, so you're most likely going to use the command line tool to initiate a transfer and then use the browser simply to monitor its progress with the Activity tab since it is prettier and more straight-forward than monitoring in the terminal. You will need to get Smithsonian's public Mapped Collection name to retrieve the UUID (a long string of numbers and letters).
+
+- Retrieve this UUID with the collection name by running `globus endpoint search "{ENDPOINT_NAME}"` (Your Smithsonian collaborator may need to provide you with read & write permissions)
+- Create a conda environment with the `globus` tool. 
+- Initiate the transfer in a `tmux` session. Note that the source is coming from root `/julietcohen` not `/home/julietcohen` and the destination at the endpoint is also root.
+
+`globus transfer {UUID_of_UCSB_endpoint}:/julietcohen/repositories/mortality-behavior/output/data-products {UUID_of_Smithsonian_endpoint}:/`
+
+- That command results in a URL to loging to globus and grant access. This login may then transfer you to a CSC login and then result in an error. This was my experience the first time. Retry the same command and login procress and it should work. At this point a globus task has been initiated. You can verify this with `globus task list`
+
+### Small data transfers in the command line
+
+Transfer a local file called `data.txt` to a server where you have set up a key pair:
+
+`scp -i ~/.ssh/id_ed25519 ./data.txt user@server:/remote/path/`
+
+Tranfer an entire directory:
+
+`scp -i ~/.ssh/id_ed25519 -r ./data_dir user@server:/remote/path/`
+
 ### Check directory and file contents
 
 Check number of files in a directory, recursively
@@ -199,27 +255,23 @@ I created an alias for my SSH login to grit:
 
 ![](images/alias.png)
 
-## Accessing Nextcloud Storage via browser
-
-[https://nextcloud.grit.ucsb.edu/index.php/apps/files/files](https://nextcloud.grit.ucsb.edu/index.php/apps/files/files)
-
-![](images/nextcloud_browser.png)
 
 
-## Commands on Pod
+## Commands on servers for HPC jobs
 
 | Command |	Use |
 | -------- | ------- |
-| `ssh {username}@pod-login1.cnsi.ucsb.edu` | login to pod |
-| `srun --pty bash -i` | 	run in a tmux session, launch an interactive job on a normal memory node (add to the queue) that doesn't respect SBATCH commands in the sh files run |
+| `ssh {username}@pod-login1.cnsi.ucsb.edu` | login to pod server |
+| `salloc -p batch -t 03:00:00 --mem=30G` or `srun --pty bash -i` | 	run in a tmux session, launch an interactive job on a normal memory node for 3 hours with 30 GB memory |
 | `sbatch script.sh` 	| launch a non-interactive job on a normal memory node (add to the queue) |
 | `sbatch -p largemem script.sh` |	launch a non-interactive job on a high memory node (add to the queue) |
 | `squeue -u {username}` |	print information regarding requested jobs such as JOBID, NAME, NODES, etc. |
-| `ssh node48` 	| open terminal in the appropriate node number such as node 48 |
+| `squeue -j {job ID} --format="%i %l %M"` | show how much time is left in a job |
+| `ssh node48` 	| open terminal in the appropriate node number |
 | `scontrol show job {jobID}` |	show detailed info about your job, such as endtime |
 | `top -u {username}` |	show node memory usage and only your processes, with %MEM column showing each process's memory usage (htop is not available on Pod) |
 | `module load R/4.1.3 gdal/2.2.3 proj/5.2` | load modules in one of the terminals on the job node |
 | `R` |	open R module in terminal |
 | `q()` | 	exit out of R module, switch `wd` to `~` |
 | `sinfo -o "%n %m"` 	| shows the total amount of memory per node for all nodes on the server |
-| `sinfo -o "%n %m %C" | awk '$2 >= 512000'` |	shows the core availability of each node that has at least 500GB |
+| `sinfo -o "%n %m %C" | awk '$2 >= 512000'` |	shows the core availability of each node that has at least 500 GB |
