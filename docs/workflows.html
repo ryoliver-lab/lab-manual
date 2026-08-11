@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Data Access – Oliver Lab Manual</title>
+<title>6&nbsp; Data Access &amp; Codebase Management – Oliver Lab Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workflows.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access &amp; Codebase Management</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflows.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access &amp; Codebase Management</span></span></a>
   </div>
 </li>
     </ul>
@@ -201,9 +201,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#globus" id="toc-globus" class="nav-link" data-scroll-target="#globus"><span class="header-section-number">6.4.3</span> Globus</a></li>
   <li><a href="#small-data-transfers-in-the-command-line" id="toc-small-data-transfers-in-the-command-line" class="nav-link" data-scroll-target="#small-data-transfers-in-the-command-line"><span class="header-section-number">6.4.4</span> Small data transfers in the command line</a></li>
   <li><a href="#check-directory-and-file-contents" id="toc-check-directory-and-file-contents" class="nav-link" data-scroll-target="#check-directory-and-file-contents"><span class="header-section-number">6.4.5</span> Check directory and file contents</a></li>
-  <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases"><span class="header-section-number">6.4.6</span> Aliases</a></li>
   </ul></li>
-  <li><a href="#commands-on-servers-for-hpc-jobs" id="toc-commands-on-servers-for-hpc-jobs" class="nav-link" data-scroll-target="#commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.5</span> Commands on servers for HPC jobs</a></li>
+  <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases"><span class="header-section-number">6.5</span> Aliases</a></li>
+  <li><a href="#commands-on-servers-for-hpc-jobs" id="toc-commands-on-servers-for-hpc-jobs" class="nav-link" data-scroll-target="#commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.6</span> Commands on servers for HPC jobs</a></li>
+  <li><a href="#recommended-git-repository-structure" id="toc-recommended-git-repository-structure" class="nav-link" data-scroll-target="#recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</a></li>
+  <li><a href="#git-repository-best-practices" id="toc-git-repository-best-practices" class="nav-link" data-scroll-target="#git-repository-best-practices"><span class="header-section-number">6.8</span> Git repository best practices</a></li>
   </ul>
 </nav>
     </div>
@@ -212,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Access &amp; Codebase Management</span></h1>
 </div>
 
 
@@ -365,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><code>globus transfer {UUID_of_UCSB_endpoint}:/julietcohen/repositories/mortality-behavior/output/data-products {UUID_of_Smithsonian_endpoint}:/</code></p>
 <ul>
-<li>That command results in a URL to loging to globus and grant access. This login may then transfer you to a CSC login and then result in an error. This was my experience the first time. Retry the same command and login procress and it should work. At this point a globus task has been initiated. You can verify this with <code>globus task list</code></li>
+<li>That command results in a URL to log in to globus and grant access. This step may then transfer you to a CSC login page and that may result in an error even with valid credentials. This was my experience the first time. Retry the same command and log in process and it should work. At this point a globus task has been initiated. You can verify this with <code>globus task list</code> in the command line or the Activity tab in the globus browser.</li>
 </ul>
 </section>
 <section id="small-data-transfers-in-the-command-line" class="level3" data-number="6.4.4">
@@ -389,17 +391,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmp</span> file1.txt file2.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/cmp_example.png" class="img-fluid"></p>
 </section>
-<section id="aliases" class="level3" data-number="6.4.6">
-<h3 data-number="6.4.6" class="anchored" data-anchor-id="aliases"><span class="header-section-number">6.4.6</span> Aliases</h3>
+</section>
+<section id="aliases" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="aliases"><span class="header-section-number">6.5</span> Aliases</h2>
 <p>Commands you run often can be made into a shortcut. This is simply a line added to your <code>~/.bashrc</code> script:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> myalias=<span class="st">"command_to_execute"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then open a new terminal so the <code>.bashrc</code> script is loaded.</p>
 <p>I created an alias for my SSH login to grit: <img src="images/bashrc.png" class="img-fluid"></p>
 <p><img src="images/alias.png" class="img-fluid"></p>
 </section>
-</section>
-<section id="commands-on-servers-for-hpc-jobs" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.5</span> Commands on servers for HPC jobs</h2>
+<section id="commands-on-servers-for-hpc-jobs" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.6</span> Commands on servers for HPC jobs</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 53%">
@@ -470,6 +472,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</section>
+<section id="recommended-git-repository-structure" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</h2>
+<p>To keep filepaths consistent, we recommend using the following directory structure in your analysis repositories:</p>
+<pre><code>├── data/ raw input data
+├── code/ all code
+│   └── functions/ custom functions
+│   └── dev/ scratchpad for developing analysis scripts
+│   └── workflow/ finalized analysis scripts
+│   └── hpc/ slurm scripts
+├── output/ all output from code
+│   └── data-products/ any intermediate data or model outputs
+│   └── figures-dev/ figures created while developing analysis scripts
+│   └── figures-workflow/ figures created from finalized analysis scripts
+├── results-summary.qmd document summarize key results for manuscript 
+├── README.md  
+├── .gitignore</code></pre>
+</section>
+<section id="git-repository-best-practices" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="git-repository-best-practices"><span class="header-section-number">6.8</span> Git repository best practices</h2>
+<ul>
+<li>Write descriptive commit messages. Commit and push often.</li>
+<li>Use repository issues to track to-do items and investigate bugs. Tag team members, directly link to other issue comments, add custom labels, and create sub-issues as needed.</li>
+<li>Use repository releases to snapshot your code and easily associate with a set of results. Add a README to the release to describe changes from the previous release and link to publicly published input data.</li>
+<li>Use project boards as you collaborate on projects to track priorities and distribute issues to different team members.</li>
+<li>Use branches and pull requests to make incremental changes to the codebase. Merge small updates frequently. Pull changes from main into your branch before merging a branch into main.</li>
+<li>Resolve merge conflicts in the command line whenever possible. The github user interface for resolving conflicts can be annoying depending on which branch was used as the base branch and the direction you are merging.</li>
+<li>Do not push input data or large output files to the remote repositories. Use the <code>.gitignore</code> wisely! Figures and images for READMEs can usually be tolerated in the remote as these are small.</li>
+<li>Archive your development environment. Build Docker images, push built images to DockerHub, and pull images/run containers on UCSB servers with Apptainer. See <a href="https://github.com/ryoliver-lab/wildlife-movement-anno">this repository</a> as an example of a containerized workflow. Use mounted volumes for adding input data and writing output data.</li>
+</ul>
 
 
 </section>

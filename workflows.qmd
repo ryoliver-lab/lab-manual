@@ -1,5 +1,5 @@
 ---
-title: "Data Access"
+title: "Data Access & Codebase Management"
 ---
 
 This chapter contains information about (1) where we store and access data and (2) how we run analyses on UCSB's HPC clusters. 
@@ -195,7 +195,7 @@ Use the Globus website or command line tool to transfer large amounts of data fr
 
 `globus transfer {UUID_of_UCSB_endpoint}:/julietcohen/repositories/mortality-behavior/output/data-products {UUID_of_Smithsonian_endpoint}:/`
 
-- That command results in a URL to loging to globus and grant access. This login may then transfer you to a CSC login and then result in an error. This was my experience the first time. Retry the same command and login procress and it should work. At this point a globus task has been initiated. You can verify this with `globus task list`
+- That command results in a URL to log in to globus and grant access. This step may then transfer you to a CSC login page and that may result in an error even with valid credentials. This was my experience the first time. Retry the same command and log in process and it should work. At this point a globus task has been initiated. You can verify this with `globus task list` in the command line or the Activity tab in the globus browser.
 
 ### Small data transfers in the command line
 
@@ -239,7 +239,7 @@ cmp file1.txt file2.txt
 
 ![](images/cmp_example.png)
 
-### Aliases
+## Aliases
 
 Commands you run often can be made into a shortcut. This is simply a line added to your `~/.bashrc` script:
 
@@ -254,8 +254,6 @@ I created an alias for my SSH login to grit:
 ![](images/bashrc.png)
 
 ![](images/alias.png)
-
-
 
 ## Commands on servers for HPC jobs
 
@@ -275,3 +273,35 @@ I created an alias for my SSH login to grit:
 | `q()` | 	exit out of R module, switch `wd` to `~` |
 | `sinfo -o "%n %m"` 	| shows the total amount of memory per node for all nodes on the server |
 | `sinfo -o "%n %m %C" | awk '$2 >= 512000'` |	shows the core availability of each node that has at least 500 GB |
+
+## Recommended git repository structure
+
+To keep filepaths consistent, we recommend using the following directory structure in your analysis repositories:
+
+```
+├── data/ raw input data
+├── code/ all code
+│   └── functions/ custom functions
+│   └── dev/ scratchpad for developing analysis scripts
+│   └── workflow/ finalized analysis scripts
+│   └── hpc/ slurm scripts
+├── output/ all output from code
+│   └── data-products/ any intermediate data or model outputs
+│   └── figures-dev/ figures created while developing analysis scripts
+│   └── figures-workflow/ figures created from finalized analysis scripts
+├── results-summary.qmd document summarize key results for manuscript 
+├── README.md  
+├── .gitignore
+```
+
+## Git repository best practices
+
+- Write descriptive commit messages. Commit and push often.
+- Use repository issues to track to-do items and investigate bugs. Tag team members, directly link to other issue comments, add custom labels, and create sub-issues as needed.
+- Use repository releases to snapshot your code and easily associate with a set of results. Add a README to the release to describe changes from the previous release and link to publicly published input data.
+- Use project boards as you collaborate on projects to track priorities and distribute issues to different team members. 
+- Use branches and pull requests to make incremental changes to the codebase. Merge small updates frequently. Pull changes from main into your branch before merging a branch into main.
+- Resolve merge conflicts in the command line whenever possible. The github user interface for resolving conflicts can be annoying depending on which branch was used as the base branch and the direction you are merging.
+- Do not push input data or large output files to the remote repositories. Use the `.gitignore` wisely! Figures and images for READMEs can usually be tolerated in the remote as these are small.
+- Archive your development environment. Build Docker images, push built images to DockerHub, and pull images/run containers on UCSB servers with Apptainer. See [this repository](https://github.com/ryoliver-lab/wildlife-movement-anno) as an example of a containerized workflow. Use mounted volumes for adding input data and writing output data.
+
