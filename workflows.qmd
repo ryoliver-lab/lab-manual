@@ -2,7 +2,12 @@
 title: "Data Access & Codebase Management"
 ---
 
-This chapter contains information about (1) where we store and access data and (2) how we run analyses on UCSB's HPC clusters. 
+This chapter contains information about:
+
+- where we store data and how to access it
+- options for transferring data between machines
+- how we run analyses on UCSB's HPC clusters
+- best practices for using git repositories collaboratively
 
 ## Data Storage
 
