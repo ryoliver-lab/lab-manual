@@ -218,5 +218,15 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Access & Codebase Management</span>"
     ]
+  },
+  {
+    "objectID": "workflows.html#positron-ide",
+    "href": "workflows.html#positron-ide",
+    "title": "6  Data Access & Codebase Management",
+    "section": "6.9 Positron IDE",
+    "text": "6.9 Positron IDE\nDownload Positron\nPositron is an ideal IDE for running R and python on a server as it allows you to have panes for viewing plots, your environment, and dataframes, and most importantly both development environments can be activated simultaneously by default. You can run R code in scripts with cmd + enter as you would in Rstudio, which makes it much more convenient than using an IDE like VScode for R on a server, which requires you to copy paste the code into the command line with the R module activated. Since you’re able to have a conda env activated as well as a specific R version, you can point to system dependencies installed into a user-specific conda env. This is helpful for packages like sf or modeling packages which have dependencies that server admin are not always willing to install for you.\nTo activate a specific conda env that is active along with your preferred R session in positron, first SSH into the server then open the command palette with cmd + shift + P. Type Interpreter: Select Session and select your R/Python selections from the dropdown. You can use the homepage environment setup overview to see which R and python are active. After this, navigate in the left pane to your project/repository you want to use as your working dir.\nSee this section of Positron’s documentation for more details.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Access & Codebase Management</span>"
+    ]
   }
 ]

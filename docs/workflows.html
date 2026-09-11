@@ -206,6 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#commands-on-servers-for-hpc-jobs" id="toc-commands-on-servers-for-hpc-jobs" class="nav-link" data-scroll-target="#commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.6</span> Commands on servers for HPC jobs</a></li>
   <li><a href="#recommended-git-repository-structure" id="toc-recommended-git-repository-structure" class="nav-link" data-scroll-target="#recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</a></li>
   <li><a href="#git-repository-best-practices" id="toc-git-repository-best-practices" class="nav-link" data-scroll-target="#git-repository-best-practices"><span class="header-section-number">6.8</span> Git repository best practices</a></li>
+  <li><a href="#positron-ide" id="toc-positron-ide" class="nav-link" data-scroll-target="#positron-ide"><span class="header-section-number">6.9</span> Positron IDE</a></li>
   </ul>
 </nav>
     </div>
@@ -508,6 +509,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Do not push input data or large output files to the remote repositories. Use the <code>.gitignore</code> wisely! Figures and images for READMEs can usually be tolerated in the remote as these are small.</li>
 <li>Archive your development environment. Build Docker images, push built images to DockerHub, and pull images/run containers on UCSB servers with Apptainer. See <a href="https://github.com/ryoliver-lab/wildlife-movement-anno">this repository</a> as an example of a containerized workflow. Use mounted volumes for adding input data and writing output data.</li>
 </ul>
+</section>
+<section id="positron-ide" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="positron-ide"><span class="header-section-number">6.9</span> Positron IDE</h2>
+<p><a href="https://positron.posit.co/">Download Positron</a></p>
+<p>Positron is an ideal IDE for running R and python on a server as it allows you to have panes for viewing plots, your environment, and dataframes, and most importantly both development environments can be activated simultaneously by default. You can run R code in scripts with <code>cmd + enter</code> as you would in Rstudio, which makes it much more convenient than using an IDE like VScode for R on a server, which requires you to copy paste the code into the command line with the R module activated. Since you’re able to have a conda env activated as well as a specific R version, you can point to system dependencies installed into a user-specific conda env. This is helpful for packages like <code>sf</code> or modeling packages which have dependencies that server admin are not always willing to install for you.</p>
+<p>To activate a specific conda env that is active along with your preferred R session in positron, first SSH into the server then open the command palette with <code>cmd + shift + P</code>. Type <code>Interpreter: Select Session</code> and select your R/Python selections from the dropdown. You can use the homepage environment setup overview to see which R and python are active. After this, navigate in the left pane to your project/repository you want to use as your working dir.</p>
+<p>See <a href="https://opensource.posit.co/blog/2026-07-15_positron-environment-management-tips/#2-use-the-interpreter-selector">this section of Positron’s documentation</a> for more details.</p>
+<p><img src="images/positron_setup.png" class="img-fluid"></p>
 
 
 </section>

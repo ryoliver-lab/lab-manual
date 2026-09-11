@@ -310,3 +310,26 @@ To keep filepaths consistent, we recommend using the following directory structu
 - Do not push input data or large output files to the remote repositories. Use the `.gitignore` wisely! Figures and images for READMEs can usually be tolerated in the remote as these are small.
 - Archive your development environment. Build Docker images, push built images to DockerHub, and pull images/run containers on UCSB servers with Apptainer. See [this repository](https://github.com/ryoliver-lab/wildlife-movement-anno) as an example of a containerized workflow. Use mounted volumes for adding input data and writing output data.
 
+## Positron IDE
+
+[Download Positron](https://positron.posit.co/)
+
+Positron is an ideal IDE for running R and python on a server as it allows you to have panes for viewing plots, your environment, and dataframes, and most importantly both development environments can be activated simultaneously by default. You can run R code in scripts with `cmd + enter` as you would in Rstudio, which makes it much more convenient than using an IDE like VScode for R on a server, which requires you to copy paste the code into the command line with the R module activated. Since you're able to have a conda env activated as well as a specific R version, you can point to system dependencies installed into a user-specific conda env. This is helpful for packages like `sf` or modeling packages which have dependencies that server admin are not always willing to install for you.
+
+To activate a specific conda env that is active along with your preferred R session in positron, first SSH into the server then open the command palette with `cmd + shift + P`. Type `Interpreter: Select Session` and select your R/Python selections from the dropdown. You can use the homepage environment setup overview to see which R and python are active. After this, navigate in the left pane to your project/repository you want to use as your working dir.
+
+See [this section of Positron's documentation](https://opensource.posit.co/blog/2026-07-15_positron-environment-management-tips/#2-use-the-interpreter-selector) for more details.
+
+![](images/positron_setup.png)
+
+
+
+
+
+
+
+
+
+
+
+
