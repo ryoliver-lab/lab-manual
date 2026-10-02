@@ -9,41 +9,30 @@ This chapter contains information about:
 - how we run analyses on UCSB's HPC clusters
 - best practices for using git repositories collaboratively
 
-## Data Storage
+## Data Storage: NextCloud
 
-We store our inpute data and workflow outputs on UCSB's GRIT server NextCloud. Once you set up a GRIT account and you will be granted a home folder of 50 GB at `/home/username`. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage.  Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The `Oliver Lab` directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at `/home/oliver-lab`
+We store our input data and workflow outputs on UCSB's GRIT server **NextCloud**. This is a UCSB server that hosts data and is within the same network as other servers used for computing. The [GRIT HPC documentation](https://bren.zendesk.com/hc/en-us/articles/46427938993300-GRIT-HPC-Guide) describes it as "a window into the same storage your HPC jobs", but you also have other HPC options on campus. Since the Oliver Lab has not utilized GRIT for HPC yet, we only use it for archiving important data, and we transfer the imput data from NextCloud to the HPC when we need to run jobs, then transfer the outputs from the HPC to NextCloud if we deem it important for archival.
 
-We pay per TB/year for our lab storage, so we're mindful to not unnecessarily store old data there indefinitely. "Data" here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project's Google Drive.
+You can access NextCloud via the browser or command line. Think of it as our large data archive "in house" (physically on UCSB's campus, managed by UCSB) instead of unnecessarily outsourcing our storage to third parties like Google Drive or [Box](https://account.box.com/login), which impose storage limits and have slow upload & download speeds. GRIT is more private, more accessible, and more flexible. You can add external collaborators from other institutions if they are set up with a GRIT account as well. However, if you are sharing a small amount of data with external collaborators one time, it is easier to just use  Box.
 
-The rule of thumb for database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions. Database filenames include the date they were generated with the format `YYYYMMDD` that is associated with a git commit or repo release on that same date. Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future. 
+We pay per TB/year for our lab storage on NextCloud, so we're mindful to not unnecessarily store old data there indefinitely. "Data" here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project's Google Drive.
+
+### NextCloud Best Practices
+
+- For database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions.
+- Database filenames include the date they were generated with the format `YYYYMMDD` that is associated with a git commit or repo release on that same date. 
+- Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future. 
+- Each NextCloud directory should include a `README.md` describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents. 
 
 ### Set up a GRIT account
 
 1. Submit a [GRIT Computer Account Request Form](https://forms.gle/kqzttgMAjzt867FZA)
 
-2. [Set up a password for your NextCloud account here](https://selfservice.grit.ucsb.edu/).
+2. Set up a [password for your NextCloud account](https://selfservice.grit.ucsb.edu/) (you should receive an email with these instructions from the request form)
 
-3. You will also need to be added to the Oliver Lab group. Submit a ticket for this via the [Zammad system](https://zammad.grit.ucsb.edu/#login)
+3. You will also need to be added to the Oliver Lab group. Submit a ticket for this via the [Zammad system](https://zammad.grit.ucsb.edu/#login). This ticketing system usually has very quick response time, but it is recommended to be very explicit about what you need. If you do not find this ticketing system helpful, please reach out to Kat and Garrett at Bren (the most helpful people on campus!)
 
-Each directory includes a `README.md` describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents. 
-
-#### Nextcloud privacy information
-
-Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.
-
-**Data encryption:** Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.
-
-**Access control:** Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.
-
-**Network security:** The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.
-
-**Auditability and monitoring:** User actions and system activity are logged to provide audit trails for security and operational review. Monitoring tools are used to detect abnormal behavior, failed login attempts, or service disruptions.
-
-**Operational security:** The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment. 
-
-**Backups:** Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.
-
-**Communication** In order to communicate with the GRIT / NextCloud team, open a ticket on [Zammad](https://zammad.grit.ucsb.edu/#ticket/view/my_tickets).
+Once you set up a GRIT account and you will be granted a home folder of 50 GB at `/home/username`. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage.  Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The `Oliver Lab` directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at `/home/oliver-lab`
 
 ## Accessing Nextcloud Storage via the browser
 
@@ -160,6 +149,24 @@ In order to break the connection, kill the terminal or use the `exit` command.
 
 ![](images/exit.png)
 
+### Nextcloud privacy information
+
+Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.
+
+**Data encryption:** Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.
+
+**Access control:** Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.
+
+**Network security:** The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.
+
+**Auditability and monitoring:** User actions and system activity are logged to provide audit trails for security and operational review. Monitoring tools are used to detect abnormal behavior, failed login attempts, or service disruptions.
+
+**Operational security:** The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment. 
+
+**Backups:** Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.
+
+**Communication** In order to communicate with the GRIT / NextCloud team, open a ticket on [Zammad](https://zammad.grit.ucsb.edu/#ticket/view/my_tickets).
+
 ### tmux
 
 It's always wise to use a persistent shell when making transfers a large amount of data or files.
@@ -274,7 +281,52 @@ I created an alias for my SSH login to grit:
 
 ![](images/alias.png)
 
-## Commands on servers for HPC jobs
+## HPC
+
+You have several options for HPC on campus. The most popular options is [Pod](https://csc.cnsi.ucsb.edu/clusters/pod), and another is GRIT. Consider queue times since you're sharing these resources with all other researchers on campus. You have the option to run code interactively the command line, where you can load modules and/or a conda environment and treat it like the console, or you can launch a job and run your scripts that way (much more common for large jobs). The launched job goes into the SLURM queue, and you can set up email notifications to tell you when it has started and completed.
+
+You can use IDEs like Positron or VSCode to access these servers, which is much more efficient than only using a terminal.
+
+Servers have a directory mounted at root called `/scratch` which have much more storage capacity than your user dir on the server, so make sure you are storing input and output files there. Note than reading and writing there during jobs may be slow, depending on how the server was set up, so it is recommended to monitor this in your jobs and adjust accordingly. For example, if you are writing many files from a workflow, instead of writing them directly to `/scratch` you can write them to `/tmp` on the worker node and then transfer them to `/scratch` at the end of the job.
+
+Example of SLURM script that requests 1 hour of runtime and a significant amount of memory:
+
+```
+#!/bin/bash
+
+#SBATCH -t 01:00:00
+#SBATCH --job-name nimble
+#SBATCH --mail-type ALL
+#SBATCH --mail-user jscohen@ucsb.edu
+#SBATCH --mem=250G
+#SBATCH --exclusive
+
+
+# set up paths
+export wd=/home/julietcohen/repositories/repo_name
+export src=$wd/code/dev
+cd $wd
+ 
+module load R/4.3.1
+
+# set paths for PROJ, GDAL, and compiler installations in my conda env
+source /home/julietcohen/miniconda3/etc/profile.d/conda.sh
+conda activate r_spatial2
+export LD_LIBRARY_PATH=/home/julietcohen/miniconda3/envs/r_spatial2/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/home/julietcohen/miniconda3/envs/r_spatial2/lib/pkgconfig:$PKG_CONFIG_PATH
+export CXX=/home/julietcohen/miniconda3/envs/r_spatial2/bin/g++
+export CC=/home/julietcohen/miniconda3/envs/r_spatial2/bin/gcc
+
+echo "STARTING SCRIPT: wildlife_workflow_part1.R"
+
+Rscript $src/wildlife_workflow_part1.R
+
+echo "STARTING SCRIPT: wildlife_workflow_part2.R"
+
+Rscript $src/wildlife_workflow_part2.R
+```
+
+### Commands on servers
 
 | Command |	Use |
 | -------- | ------- |

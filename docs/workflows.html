@@ -185,9 +185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-storage" id="toc-data-storage" class="nav-link active" data-scroll-target="#data-storage"><span class="header-section-number">6.1</span> Data Storage</a>
+  <li><a href="#data-storage-nextcloud" id="toc-data-storage-nextcloud" class="nav-link active" data-scroll-target="#data-storage-nextcloud"><span class="header-section-number">6.1</span> Data Storage: NextCloud</a>
   <ul class="collapse">
-  <li><a href="#set-up-a-grit-account" id="toc-set-up-a-grit-account" class="nav-link" data-scroll-target="#set-up-a-grit-account"><span class="header-section-number">6.1.1</span> Set up a GRIT account</a></li>
+  <li><a href="#nextcloud-best-practices" id="toc-nextcloud-best-practices" class="nav-link" data-scroll-target="#nextcloud-best-practices"><span class="header-section-number">6.1.1</span> NextCloud Best Practices</a></li>
+  <li><a href="#set-up-a-grit-account" id="toc-set-up-a-grit-account" class="nav-link" data-scroll-target="#set-up-a-grit-account"><span class="header-section-number">6.1.2</span> Set up a GRIT account</a></li>
   </ul></li>
   <li><a href="#accessing-nextcloud-storage-via-the-browser" id="toc-accessing-nextcloud-storage-via-the-browser" class="nav-link" data-scroll-target="#accessing-nextcloud-storage-via-the-browser"><span class="header-section-number">6.2</span> Accessing Nextcloud Storage via the browser</a></li>
   <li><a href="#set-up-ssh-key-pairs" id="toc-set-up-ssh-key-pairs" class="nav-link" data-scroll-target="#set-up-ssh-key-pairs"><span class="header-section-number">6.3</span> Set up SSH key pairs</a>
@@ -199,14 +200,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#access-nextcloud-storage-via-ssh" id="toc-access-nextcloud-storage-via-ssh" class="nav-link" data-scroll-target="#access-nextcloud-storage-via-ssh"><span class="header-section-number">6.4</span> Access Nextcloud Storage via SSH</a>
   <ul class="collapse">
-  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux"><span class="header-section-number">6.4.1</span> tmux</a></li>
-  <li><a href="#rsync" id="toc-rsync" class="nav-link" data-scroll-target="#rsync"><span class="header-section-number">6.4.2</span> rsync</a></li>
-  <li><a href="#globus" id="toc-globus" class="nav-link" data-scroll-target="#globus"><span class="header-section-number">6.4.3</span> Globus</a></li>
-  <li><a href="#small-data-transfers-in-the-command-line" id="toc-small-data-transfers-in-the-command-line" class="nav-link" data-scroll-target="#small-data-transfers-in-the-command-line"><span class="header-section-number">6.4.4</span> Small data transfers in the command line</a></li>
-  <li><a href="#check-directory-and-file-contents" id="toc-check-directory-and-file-contents" class="nav-link" data-scroll-target="#check-directory-and-file-contents"><span class="header-section-number">6.4.5</span> Check directory and file contents</a></li>
+  <li><a href="#nextcloud-privacy-information" id="toc-nextcloud-privacy-information" class="nav-link" data-scroll-target="#nextcloud-privacy-information"><span class="header-section-number">6.4.1</span> Nextcloud privacy information</a></li>
+  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux"><span class="header-section-number">6.4.2</span> tmux</a></li>
+  <li><a href="#rsync" id="toc-rsync" class="nav-link" data-scroll-target="#rsync"><span class="header-section-number">6.4.3</span> rsync</a></li>
+  <li><a href="#globus" id="toc-globus" class="nav-link" data-scroll-target="#globus"><span class="header-section-number">6.4.4</span> Globus</a></li>
+  <li><a href="#small-data-transfers-in-the-command-line" id="toc-small-data-transfers-in-the-command-line" class="nav-link" data-scroll-target="#small-data-transfers-in-the-command-line"><span class="header-section-number">6.4.5</span> Small data transfers in the command line</a></li>
+  <li><a href="#check-directory-and-file-contents" id="toc-check-directory-and-file-contents" class="nav-link" data-scroll-target="#check-directory-and-file-contents"><span class="header-section-number">6.4.6</span> Check directory and file contents</a></li>
   </ul></li>
   <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases"><span class="header-section-number">6.5</span> Aliases</a></li>
-  <li><a href="#commands-on-servers-for-hpc-jobs" id="toc-commands-on-servers-for-hpc-jobs" class="nav-link" data-scroll-target="#commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.6</span> Commands on servers for HPC jobs</a></li>
+  <li><a href="#hpc" id="toc-hpc" class="nav-link" data-scroll-target="#hpc"><span class="header-section-number">6.6</span> HPC</a>
+  <ul class="collapse">
+  <li><a href="#commands-on-servers" id="toc-commands-on-servers" class="nav-link" data-scroll-target="#commands-on-servers"><span class="header-section-number">6.6.1</span> Commands on servers</a></li>
+  </ul></li>
   <li><a href="#recommended-git-repository-structure" id="toc-recommended-git-repository-structure" class="nav-link" data-scroll-target="#recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</a></li>
   <li><a href="#git-repository-best-practices" id="toc-git-repository-best-practices" class="nav-link" data-scroll-target="#git-repository-best-practices"><span class="header-section-number">6.8</span> Git repository best practices</a></li>
   <li><a href="#positron-ide" id="toc-positron-ide" class="nav-link" data-scroll-target="#positron-ide"><span class="header-section-number">6.9</span> Positron IDE</a></li>
@@ -243,30 +248,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>how we run analyses on UCSB’s HPC clusters</li>
 <li>best practices for using git repositories collaboratively</li>
 </ul>
-<section id="data-storage" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">6.1</span> Data Storage</h2>
-<p>We store our inpute data and workflow outputs on UCSB’s GRIT server NextCloud. Once you set up a GRIT account and you will be granted a home folder of 50 GB at <code>/home/username</code>. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage. Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The <code>Oliver Lab</code> directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at <code>/home/oliver-lab</code></p>
-<p>We pay per TB/year for our lab storage, so we’re mindful to not unnecessarily store old data there indefinitely. “Data” here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project’s Google Drive.</p>
-<p>The rule of thumb for database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions. Database filenames include the date they were generated with the format <code>YYYYMMDD</code> that is associated with a git commit or repo release on that same date. Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future.</p>
-<section id="set-up-a-grit-account" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="set-up-a-grit-account"><span class="header-section-number">6.1.1</span> Set up a GRIT account</h3>
+<section id="data-storage-nextcloud" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="data-storage-nextcloud"><span class="header-section-number">6.1</span> Data Storage: NextCloud</h2>
+<p>We store our input data and workflow outputs on UCSB’s GRIT server <strong>NextCloud</strong>. This is a UCSB server that hosts data and is within the same network as other servers used for computing. The <a href="https://bren.zendesk.com/hc/en-us/articles/46427938993300-GRIT-HPC-Guide">GRIT HPC documentation</a> describes it as “a window into the same storage your HPC jobs”, but you also have other HPC options on campus. Since the Oliver Lab has not utilized GRIT for HPC yet, we only use it for archiving important data, and we transfer the imput data from NextCloud to the HPC when we need to run jobs, then transfer the outputs from the HPC to NextCloud if we deem it important for archival.</p>
+<p>You can access NextCloud via the browser or command line. Think of it as our large data archive “in house” (physically on UCSB’s campus, managed by UCSB) instead of unnecessarily outsourcing our storage to third parties like Google Drive or <a href="https://account.box.com/login">Box</a>, which impose storage limits and have slow upload &amp; download speeds. GRIT is more private, more accessible, and more flexible. You can add external collaborators from other institutions if they are set up with a GRIT account as well. However, if you are sharing a small amount of data with external collaborators one time, it is easier to just use Box.</p>
+<p>We pay per TB/year for our lab storage on NextCloud, so we’re mindful to not unnecessarily store old data there indefinitely. “Data” here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project’s Google Drive.</p>
+<section id="nextcloud-best-practices" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="nextcloud-best-practices"><span class="header-section-number">6.1.1</span> NextCloud Best Practices</h3>
+<ul>
+<li>For database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions.</li>
+<li>Database filenames include the date they were generated with the format <code>YYYYMMDD</code> that is associated with a git commit or repo release on that same date.</li>
+<li>Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future.</li>
+<li>Each NextCloud directory should include a <code>README.md</code> describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents.</li>
+</ul>
+</section>
+<section id="set-up-a-grit-account" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="set-up-a-grit-account"><span class="header-section-number">6.1.2</span> Set up a GRIT account</h3>
 <ol type="1">
 <li><p>Submit a <a href="https://forms.gle/kqzttgMAjzt867FZA">GRIT Computer Account Request Form</a></p></li>
-<li><p><a href="https://selfservice.grit.ucsb.edu/">Set up a password for your NextCloud account here</a>.</p></li>
-<li><p>You will also need to be added to the Oliver Lab group. Submit a ticket for this via the <a href="https://zammad.grit.ucsb.edu/#login">Zammad system</a></p></li>
+<li><p>Set up a <a href="https://selfservice.grit.ucsb.edu/">password for your NextCloud account</a> (you should receive an email with these instructions from the request form)</p></li>
+<li><p>You will also need to be added to the Oliver Lab group. Submit a ticket for this via the <a href="https://zammad.grit.ucsb.edu/#login">Zammad system</a>. This ticketing system usually has very quick response time, but it is recommended to be very explicit about what you need. If you do not find this ticketing system helpful, please reach out to Kat and Garrett at Bren (the most helpful people on campus!)</p></li>
 </ol>
-<p>Each directory includes a <code>README.md</code> describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents.</p>
-<section id="nextcloud-privacy-information" class="level4" data-number="6.1.1.1">
-<h4 data-number="6.1.1.1" class="anchored" data-anchor-id="nextcloud-privacy-information"><span class="header-section-number">6.1.1.1</span> Nextcloud privacy information</h4>
-<p>Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.</p>
-<p><strong>Data encryption:</strong> Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.</p>
-<p><strong>Access control:</strong> Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.</p>
-<p><strong>Network security:</strong> The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.</p>
-<p><strong>Auditability and monitoring:</strong> User actions and system activity are logged to provide audit trails for security and operational review. Monitoring tools are used to detect abnormal behavior, failed login attempts, or service disruptions.</p>
-<p><strong>Operational security:</strong> The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment.</p>
-<p><strong>Backups:</strong> Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.</p>
-<p><strong>Communication</strong> In order to communicate with the GRIT / NextCloud team, open a ticket on <a href="https://zammad.grit.ucsb.edu/#ticket/view/my_tickets">Zammad</a>.</p>
-</section>
+<p>Once you set up a GRIT account and you will be granted a home folder of 50 GB at <code>/home/username</code>. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage. Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The <code>Oliver Lab</code> directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at <code>/home/oliver-lab</code></p>
 </section>
 </section>
 <section id="accessing-nextcloud-storage-via-the-browser" class="level2" data-number="6.2">
@@ -345,8 +348,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/ssh_login_grit.png" class="img-fluid"></p>
 <p>In order to break the connection, kill the terminal or use the <code>exit</code> command.</p>
 <p><img src="images/exit.png" class="img-fluid"></p>
-<section id="tmux" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="tmux"><span class="header-section-number">6.4.1</span> tmux</h3>
+<section id="nextcloud-privacy-information" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="nextcloud-privacy-information"><span class="header-section-number">6.4.1</span> Nextcloud privacy information</h3>
+<p>Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.</p>
+<p><strong>Data encryption:</strong> Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.</p>
+<p><strong>Access control:</strong> Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.</p>
+<p><strong>Network security:</strong> The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.</p>
+<p><strong>Auditability and monitoring:</strong> User actions and system activity are logged to provide audit trails for security and operational review. Monitoring tools are used to detect abnormal behavior, failed login attempts, or service disruptions.</p>
+<p><strong>Operational security:</strong> The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment.</p>
+<p><strong>Backups:</strong> Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.</p>
+<p><strong>Communication</strong> In order to communicate with the GRIT / NextCloud team, open a ticket on <a href="https://zammad.grit.ucsb.edu/#ticket/view/my_tickets">Zammad</a>.</p>
+</section>
+<section id="tmux" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="tmux"><span class="header-section-number">6.4.2</span> tmux</h3>
 <p>It’s always wise to use a persistent shell when making transfers a large amount of data or files.</p>
 <p><a href="https://tmuxcheatsheet.com/">tmux cheat sheet</a></p>
 <p>You can name your tmux sessions, but the default name for a session is “0”</p>
@@ -358,8 +372,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/tmux_window.png" class="img-fluid"></p>
 <p>Note: If you do not use a tmux session and your terminal is killed midway through an rsync, the process will abort. But you can just run the same rsync command again and it will pick up where it left off, checking that some files were already transferred.</p>
 </section>
-<section id="rsync" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="rsync"><span class="header-section-number">6.4.2</span> rsync</h3>
+<section id="rsync" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="rsync"><span class="header-section-number">6.4.3</span> rsync</h3>
 <p>See the Options Summary section of the <a href="https://linux.die.net/man/1/rsync">man page</a></p>
 <ul>
 <li>When making transfers within the same machine, common to use <code>-a</code> archive mode, which is a combination of multiple options: <code>-rlptgoD</code>
@@ -381,8 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> <span class="at">-tvr</span> <span class="at">-e</span> <span class="st">"ssh -i ~/.ssh/id_ed25519"</span> safegraph jscohen@ssh.grit.ucsb.edu:/home/oliver-lab/covid/covid-raw-data/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="globus" class="level3" data-number="6.4.3">
-<h3 data-number="6.4.3" class="anchored" data-anchor-id="globus"><span class="header-section-number">6.4.3</span> Globus</h3>
+<section id="globus" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="globus"><span class="header-section-number">6.4.4</span> Globus</h3>
 <p>Use the Globus website or command line tool to transfer large amounts of data from UCSB to Smithsonian’s server, which has set up a guest collection. If using the browser, you will need to log in to both institutions, so you’re most likely going to use the command line tool to initiate a transfer and then use the browser simply to monitor its progress with the Activity tab since it is prettier and more straight-forward than monitoring in the terminal. You will need to get Smithsonian’s public Mapped Collection name to retrieve the UUID (a long string of numbers and letters). Prior to the transfer, your collaborator at Smithsonian will need to grant read &amp; write permission to your email. We achieved this by granting permission to both the USCB email and the globus email. Juliet Cohen’s globus email looks like this: <code>jcohen3@access-ci.org</code> (Juliet did not choose this username, it was generated for her, so you’ll have yo look up yours without assuming that it matches your UCSB username)</p>
 <ul>
 <li>Retrieve this UUID with the collection name by running <code>globus endpoint search "{ENDPOINT_NAME}"</code> (Your Smithsonian collaborator may need to provide you with read &amp; write permissions)</li>
@@ -394,15 +408,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>That command results in a URL to log in to globus and grant access. This step may then transfer you to a CSC login page and that may result in an error even with valid credentials. This was my experience the first time. Retry the same command and log in process and it should work. At this point a globus task has been initiated. You can verify this with <code>globus task list</code> in the command line or the Activity tab in the globus browser.</li>
 </ul>
 </section>
-<section id="small-data-transfers-in-the-command-line" class="level3" data-number="6.4.4">
-<h3 data-number="6.4.4" class="anchored" data-anchor-id="small-data-transfers-in-the-command-line"><span class="header-section-number">6.4.4</span> Small data transfers in the command line</h3>
+<section id="small-data-transfers-in-the-command-line" class="level3" data-number="6.4.5">
+<h3 data-number="6.4.5" class="anchored" data-anchor-id="small-data-transfers-in-the-command-line"><span class="header-section-number">6.4.5</span> Small data transfers in the command line</h3>
 <p>Transfer a local file called <code>data.txt</code> to a server where you have set up a key pair:</p>
 <p><code>scp -i ~/.ssh/id_ed25519 ./data.txt user@server:/remote/path/</code></p>
 <p>Tranfer an entire directory:</p>
 <p><code>scp -i ~/.ssh/id_ed25519 -r ./data_dir user@server:/remote/path/</code></p>
 </section>
-<section id="check-directory-and-file-contents" class="level3" data-number="6.4.5">
-<h3 data-number="6.4.5" class="anchored" data-anchor-id="check-directory-and-file-contents"><span class="header-section-number">6.4.5</span> Check directory and file contents</h3>
+<section id="check-directory-and-file-contents" class="level3" data-number="6.4.6">
+<h3 data-number="6.4.6" class="anchored" data-anchor-id="check-directory-and-file-contents"><span class="header-section-number">6.4.6</span> Check directory and file contents</h3>
 <p>Check number of files in a directory, recursively</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> directory_name <span class="at">-type</span> f <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Check number of bytes in a directory, summing up all files recursively, auto-scaling the bytes to human readable format (MB, GB, etc.). Note that this number can vary slightly accross machines with the same data due to metadata overhead.</p>
@@ -424,8 +438,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I created an alias for my SSH login to grit: <img src="images/bashrc.png" class="img-fluid"></p>
 <p><img src="images/alias.png" class="img-fluid"></p>
 </section>
-<section id="commands-on-servers-for-hpc-jobs" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="commands-on-servers-for-hpc-jobs"><span class="header-section-number">6.6</span> Commands on servers for HPC jobs</h2>
+<section id="hpc" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="hpc"><span class="header-section-number">6.6</span> HPC</h2>
+<p>You have several options for HPC on campus. The most popular options is <a href="https://csc.cnsi.ucsb.edu/clusters/pod">Pod</a>, and another is GRIT. Consider queue times since you’re sharing these resources with all other researchers on campus. You have the option to run code interactively the command line, where you can load modules and/or a conda environment and treat it like the console, or you can launch a job and run your scripts that way (much more common for large jobs). The launched job goes into the SLURM queue, and you can set up email notifications to tell you when it has started and completed.</p>
+<p>You can use IDEs like Positron or VSCode to access these servers, which is much more efficient than only using a terminal.</p>
+<p>Servers have a directory mounted at root called <code>/scratch</code> which have much more storage capacity than your user dir on the server, so make sure you are storing input and output files there. Note than reading and writing there during jobs may be slow, depending on how the server was set up, so it is recommended to monitor this in your jobs and adjust accordingly. For example, if you are writing many files from a workflow, instead of writing them directly to <code>/scratch</code> you can write them to <code>/tmp</code> on the worker node and then transfer them to <code>/scratch</code> at the end of the job.</p>
+<p>Example of SLURM script that requests 1 hour of runtime and a significant amount of memory:</p>
+<pre><code>#!/bin/bash
+
+#SBATCH -t 01:00:00
+#SBATCH --job-name nimble
+#SBATCH --mail-type ALL
+#SBATCH --mail-user jscohen@ucsb.edu
+#SBATCH --mem=250G
+#SBATCH --exclusive
+
+
+# set up paths
+export wd=/home/julietcohen/repositories/repo_name
+export src=$wd/code/dev
+cd $wd
+ 
+module load R/4.3.1
+
+# set paths for PROJ, GDAL, and compiler installations in my conda env
+source /home/julietcohen/miniconda3/etc/profile.d/conda.sh
+conda activate r_spatial2
+export LD_LIBRARY_PATH=/home/julietcohen/miniconda3/envs/r_spatial2/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/home/julietcohen/miniconda3/envs/r_spatial2/lib/pkgconfig:$PKG_CONFIG_PATH
+export CXX=/home/julietcohen/miniconda3/envs/r_spatial2/bin/g++
+export CC=/home/julietcohen/miniconda3/envs/r_spatial2/bin/gcc
+
+echo "STARTING SCRIPT: wildlife_workflow_part1.R"
+
+Rscript $src/wildlife_workflow_part1.R
+
+echo "STARTING SCRIPT: wildlife_workflow_part2.R"
+
+Rscript $src/wildlife_workflow_part2.R</code></pre>
+<section id="commands-on-servers" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="commands-on-servers"><span class="header-section-number">6.6.1</span> Commands on servers</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 53%">
@@ -496,6 +548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</section>
 </section>
 <section id="recommended-git-repository-structure" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</h2>
