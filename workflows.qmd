@@ -11,11 +11,25 @@ This chapter contains information about:
 
 ## Data Storage
 
-We store our inpute data and workflow outputs on UCSB's GRIT server NextCloud. We pay per TB/year for this storage, so we're mindful to not unnecessarily store old data there indefinitely. "Data" here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project's Google Drive.
+We store our inpute data and workflow outputs on UCSB's GRIT server NextCloud. Once you set up a GRIT account and you will be granted a home folder of 50 GB at `/home/username`. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage.  Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The `Oliver Lab` directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at `/home/oliver-lab`
+
+We pay per TB/year for our lab storage, so we're mindful to not unnecessarily store old data there indefinitely. "Data" here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project's Google Drive.
 
 The rule of thumb for database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions. Database filenames include the date they were generated with the format `YYYYMMDD` that is associated with a git commit or repo release on that same date. Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future. 
 
+### Set up a GRIT account
+
+1. Submit a [GRIT Computer Account Request Form](https://forms.gle/kqzttgMAjzt867FZA)
+
+2. [Set up a password for your NextCloud account here](https://selfservice.grit.ucsb.edu/).
+
+3. You will also need to be added to the Oliver Lab group. Submit a ticket for this via the [Zammad system](https://zammad.grit.ucsb.edu/#login)
+
 Each directory includes a `README.md` describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents. 
+
+#### Nextcloud privacy information
+
+Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.
 
 **Data encryption:** Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.
 
@@ -323,8 +337,9 @@ See [this section of Positron's documentation](https://opensource.posit.co/blog/
 
 ![](images/positron_setup.png)
 
+## Data Sharing Agreements
 
-
+When receiving private wildlife data from organizations external to UCSB, you may need to fill out a data sharing agreements, usually drafted by the external organization, shared with us and modified, then signed by both parties. The UCSB signature will be provided by a representative from the Office of Technology and Industry Alliances. Contact Jenna Nakano to get the process started, as she conducts the review of the organizations DSA and communicates directly with them before signing. Jenna will expect you to fill out the UCSB Data Use Agreement form, signed by Ruth, and returned to her. These 2 completed forms should be archived in NextCloud.
 
 
 

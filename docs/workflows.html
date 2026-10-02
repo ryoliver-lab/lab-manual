@@ -185,7 +185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-storage" id="toc-data-storage" class="nav-link active" data-scroll-target="#data-storage"><span class="header-section-number">6.1</span> Data Storage</a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link active" data-scroll-target="#data-storage"><span class="header-section-number">6.1</span> Data Storage</a>
+  <ul class="collapse">
+  <li><a href="#set-up-a-grit-account" id="toc-set-up-a-grit-account" class="nav-link" data-scroll-target="#set-up-a-grit-account"><span class="header-section-number">6.1.1</span> Set up a GRIT account</a></li>
+  </ul></li>
   <li><a href="#accessing-nextcloud-storage-via-the-browser" id="toc-accessing-nextcloud-storage-via-the-browser" class="nav-link" data-scroll-target="#accessing-nextcloud-storage-via-the-browser"><span class="header-section-number">6.2</span> Accessing Nextcloud Storage via the browser</a></li>
   <li><a href="#set-up-ssh-key-pairs" id="toc-set-up-ssh-key-pairs" class="nav-link" data-scroll-target="#set-up-ssh-key-pairs"><span class="header-section-number">6.3</span> Set up SSH key pairs</a>
   <ul class="collapse">
@@ -207,6 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#recommended-git-repository-structure" id="toc-recommended-git-repository-structure" class="nav-link" data-scroll-target="#recommended-git-repository-structure"><span class="header-section-number">6.7</span> Recommended git repository structure</a></li>
   <li><a href="#git-repository-best-practices" id="toc-git-repository-best-practices" class="nav-link" data-scroll-target="#git-repository-best-practices"><span class="header-section-number">6.8</span> Git repository best practices</a></li>
   <li><a href="#positron-ide" id="toc-positron-ide" class="nav-link" data-scroll-target="#positron-ide"><span class="header-section-number">6.9</span> Positron IDE</a></li>
+  <li><a href="#data-sharing-agreements" id="toc-data-sharing-agreements" class="nav-link" data-scroll-target="#data-sharing-agreements"><span class="header-section-number">6.10</span> Data Sharing Agreements</a></li>
   </ul>
 </nav>
     </div>
@@ -241,9 +245,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="data-storage" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">6.1</span> Data Storage</h2>
-<p>We store our inpute data and workflow outputs on UCSB’s GRIT server NextCloud. We pay per TB/year for this storage, so we’re mindful to not unnecessarily store old data there indefinitely. “Data” here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project’s Google Drive.</p>
+<p>We store our inpute data and workflow outputs on UCSB’s GRIT server NextCloud. Once you set up a GRIT account and you will be granted a home folder of 50 GB at <code>/home/username</code>. This username is your UCSB NetID, not your full email. This folder will follow you around from Linux server to Linux server automatically. So if one server is busy or down, you are able to use another one with the same access to your storage. Feel free to use your home folder for your personal needs. For larger data storage, please use project-based folders. The <code>Oliver Lab</code> directory is our project-based directory, which is accessible from the landing page in the browser after logging in. Or access it via the CLI at <code>/home/oliver-lab</code></p>
+<p>We pay per TB/year for our lab storage, so we’re mindful to not unnecessarily store old data there indefinitely. “Data” here includes database files, CSVs, model files, etc. but not word documents or PDFs that contain written materials for project proposals or manuscript drafts. Those project documents are stored in the project’s Google Drive.</p>
 <p>The rule of thumb for database files and sets of results and intermediate data products is to only store the current and most recent versions, and delete the older versions. Database filenames include the date they were generated with the format <code>YYYYMMDD</code> that is associated with a git commit or repo release on that same date. Releases are reserved for database versions that serve as input into an analysis. These may also be associated with Docker images in the future.</p>
+<section id="set-up-a-grit-account" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="set-up-a-grit-account"><span class="header-section-number">6.1.1</span> Set up a GRIT account</h3>
+<ol type="1">
+<li><p>Submit a <a href="https://forms.gle/kqzttgMAjzt867FZA">GRIT Computer Account Request Form</a></p></li>
+<li><p><a href="https://selfservice.grit.ucsb.edu/">Set up a password for your NextCloud account here</a>.</p></li>
+<li><p>You will also need to be added to the Oliver Lab group. Submit a ticket for this via the <a href="https://zammad.grit.ucsb.edu/#login">Zammad system</a></p></li>
+</ol>
 <p>Each directory includes a <code>README.md</code> describing the contents. This file should be downloaded, updated, and uploaded with any changes to the contents.</p>
+<section id="nextcloud-privacy-information" class="level4" data-number="6.1.1.1">
+<h4 data-number="6.1.1.1" class="anchored" data-anchor-id="nextcloud-privacy-information"><span class="header-section-number">6.1.1.1</span> Nextcloud privacy information</h4>
+<p>Sometimes external data providers request information about how you will securely store their shared data at UCSB. You can send them the following information.</p>
 <p><strong>Data encryption:</strong> Data in transit is encrypted using industry-standard TLS (HTTPS/SSH/WebDAVS), ensuring that information cannot be read or altered while being transmitted over the network.</p>
 <p><strong>Access control:</strong> Access to the server is restricted to authenticated users only. Authentication is handled via individual user accounts, backed by Active Directory and single sign on via Authentik. Role-based access controls (RBAC) are used to ensure users can only access data and services appropriate to their role. Administrative access is limited to a small number of authorized operators and requires elevated privileges.</p>
 <p><strong>Network security:</strong> The server is protected by firewall rules that restrict inbound and outbound traffic to only required services and trusted networks. Remote access is limited to secure protocols like HTTPS, SSH and WebDAVS.</p>
@@ -251,6 +266,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Operational security:</strong> The system is regularly updated with security patches. Backups are performed hourly to protect against data loss, with access to backups restricted to authorized administrators only. Backups are kept on GRIT owned and managed equipment.</p>
 <p><strong>Backups:</strong> Hourly snapshots of the data are taken and the storage / snapshot stream is replicated to another server in a different datacenter on campus for redundancy.</p>
 <p><strong>Communication</strong> In order to communicate with the GRIT / NextCloud team, open a ticket on <a href="https://zammad.grit.ucsb.edu/#ticket/view/my_tickets">Zammad</a>.</p>
+</section>
+</section>
 </section>
 <section id="accessing-nextcloud-storage-via-the-browser" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="accessing-nextcloud-storage-via-the-browser"><span class="header-section-number">6.2</span> Accessing Nextcloud Storage via the browser</h2>
@@ -518,6 +535,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To activate a specific conda env that is active along with your preferred R session in positron, first SSH into the server then open the command palette with <code>cmd + shift + P</code>. Type <code>Interpreter: Select Session</code> and select your R/Python selections from the dropdown. You can use the homepage environment setup overview to see which R and python are active. After this, navigate in the left pane to your project/repository you want to use as your working dir.</p>
 <p>See <a href="https://opensource.posit.co/blog/2026-07-15_positron-environment-management-tips/#2-use-the-interpreter-selector">this section of Positron’s documentation</a> for more details.</p>
 <p><img src="images/positron_setup.png" class="img-fluid"></p>
+</section>
+<section id="data-sharing-agreements" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="data-sharing-agreements"><span class="header-section-number">6.10</span> Data Sharing Agreements</h2>
+<p>When receiving private wildlife data from organizations external to UCSB, you may need to fill out a data sharing agreements, usually drafted by the external organization, shared with us and modified, then signed by both parties. The UCSB signature will be provided by a representative from the Office of Technology and Industry Alliances. Contact Jenna Nakano to get the process started, as she conducts the review of the organizations DSA and communicates directly with them before signing. Jenna will expect you to fill out the UCSB Data Use Agreement form, signed by Ruth, and returned to her. These 2 completed forms should be archived in NextCloud.</p>
 
 
 </section>
